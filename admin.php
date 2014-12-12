@@ -1,0 +1,1 @@
+<?php echo 'Admin file '.__FILE__; ?>

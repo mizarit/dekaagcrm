@@ -1,0 +1,1229 @@
+# Copyright (C) 2014 De Kaag CRM
+# This file is distributed under the same license as the De Kaag CRM package.
+msgid ""
+msgstr ""
+"Project-Id-Version: De Kaag CRM 1.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/dekaagcrm\n"
+"POT-Creation-Date: 2014-12-07 22:26:21+00:00\n"
+"PO-Revision-Date: 2014-12-07 23:36+0100\n"
+"Last-Translator: Ricardo Matters <ricardo.matters@mizar-it.nl>\n"
+"Language-Team: OnlineAfspraken <info@onlineafspraken.nl>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: class.dekaagcrm-admin-consumers.php:55 tpl/consumers/edit.php:65
+msgid "Strength indicator"
+msgstr "Sterkte indicatie"
+
+#: class.dekaagcrm-admin-consumers.php:56
+msgid "Very weak"
+msgstr "Erg zwak"
+
+#: class.dekaagcrm-admin-consumers.php:57
+msgid "Weak"
+msgstr "Zwak"
+
+#: class.dekaagcrm-admin-consumers.php:58
+msgctxt "password strength"
+msgid "Medium"
+msgstr "Gemiddeld"
+
+#: class.dekaagcrm-admin-consumers.php:59
+msgid "Strong"
+msgstr "Sterk"
+
+#: class.dekaagcrm-admin-consumers.php:60
+msgid "Mismatch"
+msgstr "Komen niet overeen"
+
+#: class.dekaagcrm-admin-consumers.php:70
+msgid "Edit relation"
+msgstr "Relatie bewerken"
+
+#: class.dekaagcrm-admin-consumers.php:74 tpl/consumers/list.php:3
+#: tpl/transactions/create.php:12
+msgid "New relation"
+msgstr "Nieuwe relatie"
+
+#: class.dekaagcrm-admin-consumers.php:99 class.dekaagcrm-frontend.php:190
+msgid "Last name is required"
+msgstr "Achternaam is verplicht"
+
+#: class.dekaagcrm-admin-consumers.php:103 class.dekaagcrm-frontend.php:194
+msgid "Email is required"
+msgstr "E-mail adres is verplicht"
+
+#: class.dekaagcrm-admin-consumers.php:106 class.dekaagcrm-frontend.php:197
+msgid "Email is invalid"
+msgstr "E-mail adres is ongeldig"
+
+#: class.dekaagcrm-admin-consumers.php:111 class.dekaagcrm-frontend.php:202
+msgid "Zipcode is invalid"
+msgstr "Postcode is ongeldig"
+
+#: class.dekaagcrm-admin-consumers.php:117 class.dekaagcrm-frontend.php:216
+msgid "The 2 passwords do not match"
+msgstr "De 2 wachtwoorden komen niet overeen"
+
+#: class.dekaagcrm-admin-consumers.php:123 class.dekaagcrm-frontend.php:222
+msgid "The username is too short"
+msgstr "De gebruikersnaam is te kort"
+
+#: class.dekaagcrm-admin-consumers.php:126 class.dekaagcrm-frontend.php:225
+msgid "The username is already taken"
+msgstr "De gebruikersnaam is al in gebruik"
+
+#: class.dekaagcrm-admin-consumers.php:162 tpl/mail/credentials.php:52
+msgid "Your account credentials"
+msgstr "Je inloggegevens"
+
+#: class.dekaagcrm-admin-consumers.php:339 class.dekaagcrm-admin-forms.php:289
+msgid "consumer"
+msgstr "klant"
+
+#: class.dekaagcrm-admin-consumers.php:340 class.dekaagcrm-admin-forms.php:290
+msgid "consumers"
+msgstr "klanten"
+
+#: class.dekaagcrm-admin-consumers.php:360 class.dekaagcrm-admin-forms.php:310
+#: class.dekaagcrm-admin-forms.php:312 class.dekaagcrm-admin-invoices.php:410
+msgid "Edit"
+msgstr "Bewerken"
+
+#: class.dekaagcrm-admin-consumers.php:361
+#: class.dekaagcrm-admin-consumers.php:401 class.dekaagcrm-admin-forms.php:313
+#: class.dekaagcrm-admin-invoices.php:411 tpl/forms/edit.php:22
+#: tpl/forms/edit.php:165 tpl/forms/edit.php:214
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: class.dekaagcrm-admin-consumers.php:383 class.dekaagcrm-admin-forms.php:336
+#: tpl/consumers/edit.php:97 tpl/frontend/settings.php:57
+msgid "Name"
+msgstr "Naam"
+
+#: class.dekaagcrm-admin-consumers.php:384 tpl/consumers/edit.php:16
+#: tpl/consumers/edit.php:112 tpl/frontend/settings.php:26
+#: tpl/frontend/settings.php:72
+msgid "Email"
+msgstr "E-mail adres"
+
+#: class.dekaagcrm-admin-consumers.php:385 tpl/consumers/edit.php:101
+#: tpl/frontend/settings.php:61
+msgid "Date of birth"
+msgstr "Geboortedatum"
+
+#: class.dekaagcrm-admin-consumers.php:448
+#: class.dekaagcrm-admin-invoices.php:551
+msgid "Export"
+msgstr "Exporteren"
+
+#: class.dekaagcrm-admin-consumers.php:451
+#: class.dekaagcrm-admin-invoices.php:557
+msgid "Search"
+msgstr "Zoeken"
+
+#: class.dekaagcrm-admin-forms.php:91
+msgid "Edit form"
+msgstr "Formulier bewerken"
+
+#: class.dekaagcrm-admin-forms.php:95 tpl/forms/list.php:3
+msgid "New form"
+msgstr "Nieuw formulier"
+
+#: class.dekaagcrm-admin-forms.php:215
+msgid "Title is required"
+msgstr "Naam is verplicht"
+
+#: class.dekaagcrm-admin-invoices.php:384
+msgid "invoice"
+msgstr "factuur"
+
+#: class.dekaagcrm-admin-invoices.php:385 widget/class.dekaagcrm-login.php:78
+msgid "invoices"
+msgstr "facturen"
+
+#: class.dekaagcrm-admin-invoices.php:414
+#: class.dekaagcrm-admin-invoices.php:425
+msgid "Download PDF"
+msgstr "PDF downloaden"
+
+#: class.dekaagcrm-admin-invoices.php:420 tpl/transactions/update.php:65
+msgid "Add payment"
+msgstr "Betaling toevoegen"
+
+#: class.dekaagcrm-admin-invoices.php:423
+msgid "View payments"
+msgstr "Bekijk betalingen"
+
+#: class.dekaagcrm-admin-invoices.php:447
+msgid "Invoice nr"
+msgstr "Factuurnummer"
+
+#: class.dekaagcrm-admin-invoices.php:448 tpl/transactions/update.php:16
+#: tpl/transactions/view.php:16
+msgid "Relation"
+msgstr "Relatie"
+
+#: class.dekaagcrm-admin-invoices.php:449 tpl/frontend/history.php:6
+#: tpl/frontend/invoices.php:6 tpl/transactions/update.php:48
+#: tpl/transactions/view.php:51
+msgid "Date"
+msgstr "Datum"
+
+#: class.dekaagcrm-admin-invoices.php:450 tpl/frontend/invoices.php:7
+#: tpl/transactions/update.php:59 tpl/transactions/view.php:52
+msgid "Total"
+msgstr "Totaal"
+
+#: class.dekaagcrm-admin-invoices.php:451 tpl/transactions/update.php:36
+#: tpl/transactions/view.php:36
+msgid "Remaining"
+msgstr "Resterend"
+
+#: class.dekaagcrm-admin-invoices.php:452
+msgid "End date"
+msgstr "Einddatum"
+
+#: class.dekaagcrm-admin-invoices.php:454 tpl/frontend/invoices.php:8
+msgid "Status"
+msgstr "Status"
+
+#: class.dekaagcrm-admin-invoices.php:532
+msgid "All statusses"
+msgstr "Alle statussen"
+
+#: class.dekaagcrm-admin-invoices.php:533 lib/model/Invoice.php:25
+msgid "pending"
+msgstr "In afwachting"
+
+#: class.dekaagcrm-admin-invoices.php:534 lib/model/Invoice.php:26
+msgid "open"
+msgstr "Gefactureerd"
+
+#: class.dekaagcrm-admin-invoices.php:535 lib/model/Invoice.php:27
+msgid "payed_partial"
+msgstr "Gedeeltelijk betaald"
+
+#: class.dekaagcrm-admin-invoices.php:536 lib/model/Invoice.php:28
+msgid "payed"
+msgstr "Betaald"
+
+#: class.dekaagcrm-admin-invoices.php:537 lib/model/Invoice.php:29
+msgid "credit"
+msgstr "Gecrediteerd"
+
+#: class.dekaagcrm-admin-invoices.php:548
+msgid "Apply filter"
+msgstr "Filter toepassen"
+
+#: class.dekaagcrm-admin-invoices.php:554
+msgid "Export full"
+msgstr "Volledige export"
+
+#: class.dekaagcrm-admin.php:36
+msgid "De Kaag CRM options"
+msgstr "OnlineAfspraken.nl Widget"
+
+#: class.dekaagcrm-admin.php:41
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan "
+
+#: class.dekaagcrm-admin.php:92
+msgid "Invoice settings"
+msgstr "Factuur instellingen"
+
+#: class.dekaagcrm-admin.php:93
+msgid "Accountholder"
+msgstr "Naam rekeninghouder"
+
+#: class.dekaagcrm-admin.php:94
+msgid "IBAN"
+msgstr "IBAN"
+
+#: class.dekaagcrm-admin.php:95
+msgid "IBAN for payments"
+msgstr "IBAN voor betalingen"
+
+#: class.dekaagcrm-admin.php:96
+msgid "VAT number"
+msgstr "BTW-nummer"
+
+#: class.dekaagcrm-admin.php:97
+msgid "CoC number"
+msgstr "KvK-nummer"
+
+#: class.dekaagcrm-admin.php:98
+msgid "Website"
+msgstr "Website"
+
+#: class.dekaagcrm-admin.php:99 class.dekaagcrm-admin.php:106
+msgid "Email address"
+msgstr "E-mail adres"
+
+#: class.dekaagcrm-admin.php:100
+msgid "Reminder period"
+msgstr "Herinneringsperiode"
+
+#: class.dekaagcrm-admin.php:102
+msgid "Payment provider settings"
+msgstr "Betaalprovider instellingen"
+
+#: class.dekaagcrm-admin.php:103
+msgid "Mollie API key"
+msgstr "Mollie API key:"
+
+#: class.dekaagcrm-admin.php:105
+msgid "Mail settings"
+msgstr "E-mail instellingen"
+
+#: class.dekaagcrm-admin.php:107
+msgid "Sender name"
+msgstr "Afzendernaam"
+
+#: class.dekaagcrm-admin.php:109
+msgid "OnlineAfspraken API"
+msgstr "OnlineAfspraken API instellingen"
+
+#: class.dekaagcrm-admin.php:110
+#, fuzzy
+msgid "API key"
+msgstr "API key:"
+
+#: class.dekaagcrm-admin.php:111
+#, fuzzy
+msgid "API secret"
+msgstr "API secret:"
+
+#: class.dekaagcrm-admin.php:112
+msgid "URL"
+msgstr "URL"
+
+#: class.dekaagcrm-admin.php:117
+msgid "Configure these values to be used on the PDF invoices"
+msgstr "Configureer deze variabelen die op de PDF facturen getoond worden"
+
+#: class.dekaagcrm-admin.php:122
+msgid "Configure the name and email sender for all outgoing emails"
+msgstr "Configureer de afzendernaam en e-mail adres van alle uitgaande e-mails"
+
+#: class.dekaagcrm-admin.php:155 tpl/consumers/list.php:3
+msgid "Consumers"
+msgstr "Klanten"
+
+#: class.dekaagcrm-admin.php:156 tpl/transactions/list.php:3
+msgid "Transactions"
+msgstr "Transacties"
+
+#: class.dekaagcrm-admin.php:157 tpl/forms/list.php:3
+msgid "Forms"
+msgstr "Formulieren"
+
+#: class.dekaagcrm-frontend.php:125
+msgid "Reminder"
+msgstr "Herinnering"
+
+#: class.dekaagcrm-frontend.php:207
+msgid "Phone is required"
+msgstr "Telefoonnummer is verplicht"
+
+#: class.dekaagcrm-frontend.php:211
+msgid "Mobile phone is required"
+msgstr "Mobiele telefoon is verplicht"
+
+#: class.dekaagcrm-frontend.php:261
+msgid "Dob is invalid of persona"
+msgstr "Geboortedatum is ongeldig van persoon"
+
+#: class.dekaagcrm-frontend.php:266
+msgid "Email is invalid of persona"
+msgstr "E-mail adres is ongeldig van persoon"
+
+#: class.dekaagcrm-frontend.php:285
+msgid "Your changes have been saved"
+msgstr "Je wijzigingen zijn opgeslagen"
+
+#: lib/model/Invoice.php:24
+msgid "unknown"
+msgstr "onbekend"
+
+#: lib/model/Invoice.php:110
+msgid "Invoice"
+msgstr "Factuur"
+
+#: lib/vendor/onlineafspraken/lib/widget.php:731
+msgid "Gebruikersnaam is een verplicht veld"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:735
+msgid "Voornaam is een verplicht veld"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:739
+msgid "Achternaam is een verplicht veld"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:743
+msgid "E-mail adres is een verplicht veld"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:747
+msgid "Wachtwoord is een verplicht veld"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:750
+msgid "Wachtwoord is te kort"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:753
+msgid "Wachtwoord is niet gelijk aan het controle-wachtwoord"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:757
+msgid "U moet de algemene voorwaarden accepteren"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:761
+msgid "Naam persona is een verplicht veld"
+msgstr "Naam persoon is een verplicht veld"
+
+#: lib/vendor/onlineafspraken/lib/widget.php:765
+#: lib/vendor/onlineafspraken/lib/widget.php:877
+msgid "Geboortedatum persona is een verplicht veld"
+msgstr "Geboortedatum persoon is een verplicht veld"
+
+#: lib/vendor/onlineafspraken/lib/widget.php:873
+msgid "Naam is een verplicht veld"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:946
+#: lib/vendor/onlineafspraken/lib/widget.php:968 tpl/frontend/settings.php:55
+msgid "Kind/ gast"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widget.php:964
+msgid "Add new persona"
+msgstr "Persoon toevoegen"
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Zondag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Maandag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Dinsdag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Woensdag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Donderdag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Vrijdag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:83
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:89
+msgid "Zaterdag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:86
+msgid "Vandaag"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Januari"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Februari"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Maart"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "April"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Mei"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Juni"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Juli"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:93
+msgid "Augustus"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:94
+msgid "September"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:94
+msgid "Oktober"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:94
+msgid "November"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:94
+msgid "December"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:99
+#: lib/vendor/onlineafspraken/templates/appointment.php:29
+msgid "Zonder resource"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:103
+msgid "De gegevens worden opgehaald..."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/lib/widgetCore.php:449
+msgid "Beschikbare tijden op"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/appointment.php:6
+msgid "Afspraak categorie"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/appointment.php:8
+msgid "Categorie"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/appointment.php:22
+msgid "Wat wil je bij ons reserveren?"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/appointment.php:26
+msgid "Kies een medewerker of artikel"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/appointment.php:28
+msgid "Resource"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/appointment.php:33
+msgid "Wat is je geboortedatum?"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/calendar.php:4
+#: lib/vendor/onlineafspraken/templates/wizard.php:2
+msgid "Back"
+msgstr "Vorige stap"
+
+#: lib/vendor/onlineafspraken/templates/confirm.php:1
+#: lib/vendor/onlineafspraken/templates/consumerData.php:1
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:1
+#: lib/vendor/onlineafspraken/templates/persona.php:1
+#: lib/vendor/onlineafspraken/templates/register.php:1
+#: lib/vendor/onlineafspraken/templates/thankyou.php:1
+msgid "Uw afspraak"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/confirm.php:7
+#: lib/vendor/onlineafspraken/templates/confirm.php:17
+#: lib/vendor/onlineafspraken/templates/consumerData.php:9
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:8
+#: lib/vendor/onlineafspraken/templates/persona.php:8
+#: lib/vendor/onlineafspraken/templates/register.php:8
+msgid "Aanpassen"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/confirm.php:10
+#: lib/vendor/onlineafspraken/templates/consumerData.php:13
+#: lib/vendor/onlineafspraken/templates/register.php:24
+#: lib/vendor/onlineafspraken/templates/thankyou.php:6
+msgid "Uw gegevens"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/confirm.php:20
+msgid "Reservering afronden"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/confirm.php:33
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:35
+#: lib/vendor/onlineafspraken/templates/persona.php:50
+#: lib/vendor/onlineafspraken/templates/register.php:111
+msgid "Terug"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/confirm.php:34
+msgid "Bevestigen"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:2
+msgid ""
+"Controleer de gegevens hieronder. U kunt de afspraak bevestigen door "
+"hieronder in te loggen, of door uzelf te registreren als klant."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:14
+msgid ""
+"U bent al ingelogd als de onderstaande gebruiker. Indien u de afspraak wilt "
+"bevestigen kunt u verder gaan met 'Bevestigen'."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:20
+msgid "Uitloggen"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:21
+#: lib/vendor/onlineafspraken/templates/wizard.php:3
+msgid "Volgende stap"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:25
+#: lib/vendor/onlineafspraken/templates/consumerData.php:54
+msgid "Inloggen"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:27
+msgid ""
+"Meld uzelf aan met uw Facebook account. U hoeft zich niet te registreren om "
+"een afspraak te maken."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:29
+msgid "Of meld uzelf aan met uw inloggegevens om uw afspraak vast te leggen."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:31
+msgid "Meld uzelf aan met uw inloggegevens om uw afspraak vast te leggen."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:35
+msgid "De opgegeven gebruikersnaam of wachtwoord is niet juist."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:44
+#: lib/vendor/onlineafspraken/templates/register.php:91
+msgid "Gebruikersnaam"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:49
+#: lib/vendor/onlineafspraken/templates/register.php:96
+msgid "Wachtwoord"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:59
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:11
+msgid "Wachtwoord vergeten?"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:61
+msgid "Registreren"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:62
+msgid "Bent u nog geen klant, of beschikt u nog niet over inloggegevens?"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/consumerData.php:64
+#: lib/vendor/onlineafspraken/templates/register.php:11
+msgid "Gebruikers registratie"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:12
+msgid ""
+"Vul hieronder het e-mailadres in van uw klantaccount. U ontvangt dan per e-"
+"mail een link waarmee u uw wachtwoord opnieuw in kunt stellen."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:30
+#: lib/vendor/onlineafspraken/templates/register.php:52
+msgid "E-mail adres"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/passwordReminder.php:36
+#: lib/vendor/onlineafspraken/templates/persona.php:51
+#: lib/vendor/onlineafspraken/templates/register.php:112
+msgid "Verzenden"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:11
+#: tpl/consumers/edit.php:186
+msgid "Add persona"
+msgstr "Persona toevoegen"
+
+#: lib/vendor/onlineafspraken/templates/persona.php:12
+msgid "Vul het onderstaande formulier in om een persona toe te voegen."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:25
+#: lib/vendor/onlineafspraken/templates/register.php:63
+msgid "Naam"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:30
+#: lib/vendor/onlineafspraken/templates/register.php:68
+msgid "Geslacht"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:32
+#: lib/vendor/onlineafspraken/templates/register.php:70
+msgid "Man"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:33
+#: lib/vendor/onlineafspraken/templates/register.php:71
+msgid "Vrouw"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:38
+#: lib/vendor/onlineafspraken/templates/register.php:76
+msgid "Geboortedatum"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:42
+#: lib/vendor/onlineafspraken/templates/register.php:80
+msgid "Opmerkingen"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/persona.php:43
+#: lib/vendor/onlineafspraken/templates/register.php:81
+msgid ""
+"Vul hier bijv. in eventuele allergie-informatie, medische beperkingen, of "
+"andere zaken waarvan u het belangrijk acht dat wij hiervan op de hoogte zijn."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:12
+msgid ""
+"Vul het onderstaande formulier in om uw gebruikersaccount aan te maken. "
+"Hierna kunt u uw afspraak met dit gebruikersprofiel bevestigen."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:27
+msgid "Voornaam"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:32
+msgid "Achternaam"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:37
+#, fuzzy
+msgid "Adres"
+msgstr "Adres"
+
+#: lib/vendor/onlineafspraken/templates/register.php:42
+msgid "Postcode"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:47
+msgid "Plaats"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:57
+msgid "Telefoon"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:61
+msgid "Gegevens van het kind/ de gast"
+msgstr "Gegevens van het kind/ de gast"
+
+#: lib/vendor/onlineafspraken/templates/register.php:88
+msgid "Inloggegevens"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:101
+msgid "Herhaal wachtwoord"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:107
+msgid "Ik ga akkoord met de"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/register.php:107
+msgid "algemene voorwaarden"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/thankyou.php:11
+msgid "Bedankt"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/thankyou.php:24
+msgid ""
+"Uw afspraak is gemaakt. Er is een e-mail bevestiging naar u verzonden met "
+"een bijgevoegde factuur."
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/thankyou.php:33
+msgid "Betaling starten"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/thankyou.php:37
+msgid "Aanbetaling starten"
+msgstr ""
+
+#: lib/vendor/onlineafspraken/templates/thankyou.php:42
+msgid "Maak nog een afspraak"
+msgstr ""
+
+#: tpl/consumers/edit.php:8 tpl/frontend/settings.php:18
+msgid "First name"
+msgstr "Voornaam"
+
+#: tpl/consumers/edit.php:12 tpl/frontend/settings.php:22
+msgid "Last name"
+msgstr "Achternaam"
+
+#: tpl/consumers/edit.php:20 tpl/frontend/settings.php:30
+msgid "Phone"
+msgstr "Telefoonnummer"
+
+#: tpl/consumers/edit.php:24 tpl/frontend/settings.php:34
+msgid "Mobile phone"
+msgstr "Mobiel nummer"
+
+#: tpl/consumers/edit.php:28 tpl/frontend/settings.php:38
+msgid "Alternative phone"
+msgstr "Extra nummer"
+
+#: tpl/consumers/edit.php:32 tpl/frontend/settings.php:42
+#: tpl/transactions/create.php:16
+msgid "Address"
+msgstr "Adres"
+
+#: tpl/consumers/edit.php:36 tpl/frontend/settings.php:46
+msgid "Zipcode"
+msgstr "Postcode"
+
+#: tpl/consumers/edit.php:40 tpl/frontend/settings.php:50
+msgid "City"
+msgstr "Plaats"
+
+#: tpl/consumers/edit.php:45
+msgid "Set login account"
+msgstr "Stel inloggegevens in"
+
+#: tpl/consumers/edit.php:50 tpl/frontend/settings.php:99
+#: widget/class.dekaagcrm-login.php:90 widget/class.dekaagcrm-login.php:91
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: tpl/consumers/edit.php:54 tpl/frontend/settings.php:103
+#: widget/class.dekaagcrm-login.php:94 widget/class.dekaagcrm-login.php:95
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: tpl/consumers/edit.php:61 tpl/frontend/settings.php:107
+msgid "Repeat Password"
+msgstr "Wachtwoord controle"
+
+#: tpl/consumers/edit.php:66
+msgid ""
+"Hint: The password should be at least seven characters long. To make it "
+"stronger, use upper and lower case letters, numbers, and symbols like ! \" ? "
+"$ % ^ &amp; )."
+msgstr ""
+"Opmerking: Het wachtwoord moet minstens 7 tekens lang zijn. Gebruik "
+"hoofdletters en kleine letters, cijfers en tekens zoals !?$%^"
+
+#: tpl/consumers/edit.php:70
+msgid "Send Password?"
+msgstr "Wachtwoord sturen naar consument?"
+
+#: tpl/consumers/edit.php:71
+msgid "Send this password to the new user by email."
+msgstr "Verstuur dit wachtwoord naar de nieuwe gebruiker per e-mail"
+
+#: tpl/consumers/edit.php:91 tpl/frontend/history.php:5
+msgid "Persona"
+msgstr "Persona"
+
+#: tpl/consumers/edit.php:105 tpl/frontend/settings.php:65
+msgid "Gender"
+msgstr "Geslacht"
+
+#: tpl/consumers/edit.php:107 tpl/frontend/settings.php:67
+msgid "male"
+msgstr "man"
+
+#: tpl/consumers/edit.php:108 tpl/frontend/settings.php:68
+msgid "female"
+msgstr "vrouw"
+
+#: tpl/consumers/edit.php:117 tpl/frontend/settings.php:88
+msgid "Diplomas"
+msgstr "Diploma's"
+
+#: tpl/consumers/edit.php:160 tpl/frontend/settings.php:76
+#: tpl/transactions/view.php:54
+msgid "Remarks"
+msgstr "Opmerkingen"
+
+#: tpl/consumers/edit.php:164
+msgid "Remarks private"
+msgstr "Opmerkingen (privé) "
+
+#: tpl/consumers/edit.php:187 tpl/forms/edit.php:260
+msgid "Create relation"
+msgstr "Relatie toevoegen"
+
+#: tpl/consumers/edit.php:187 tpl/forms/edit.php:260
+msgid "Save changes"
+msgstr "Wijzigingen opslaan"
+
+#: tpl/forms/edit.php:8
+msgid "Form name"
+msgstr "Formulier naam"
+
+#: tpl/forms/edit.php:21
+msgid "Mutation"
+msgstr "Welke mutatie"
+
+#: tpl/forms/edit.php:33
+msgid "Question"
+msgstr "Vraag"
+
+#: tpl/forms/edit.php:41
+msgid "Explanation"
+msgstr "Uitleg"
+
+#: tpl/forms/edit.php:49
+msgid "On invoice"
+msgstr "Op factuur"
+
+#: tpl/forms/edit.php:57
+msgid "Field type"
+msgstr "Veldtype"
+
+#: tpl/forms/edit.php:70
+msgid "Default answer"
+msgstr "Standaard antwoord"
+
+#: tpl/forms/edit.php:92
+msgid "Show question if"
+msgstr "Toon vraag indien"
+
+#: tpl/forms/edit.php:92
+msgid "Use mutation if"
+msgstr "Gebruik mutatie indien"
+
+#: tpl/forms/edit.php:178
+msgid "Which ansers are possible"
+msgstr "Welke antwoorden zijn mogelijk"
+
+#: tpl/forms/edit.php:212
+msgid ""
+"Specify a mutation to the total sum if this answer is selected. The value "
+"can be positive and negative. For example '10 percent' or '-30 euro'. The "
+"calculation is aplied to the current total, which can be modified by "
+"questions and mutations above."
+msgstr ""
+"Geef een mutatie aan indien dit antwoord wordt gekozen. De waarde kan "
+"positief en negatief zijn. Bijvoorbeeld \"10 procent\" of \"-30 euro\". The "
+"berekening wordt toegepast op het huidige totaal, en kan zijn aangepast door "
+"overige vragen en mutaties erboven."
+
+#: tpl/forms/edit.php:213
+msgid ""
+"Enter the name of the resource within your OA environment. You can use * as "
+"a wildcard to include multiple resources. For example 'slaapplek' or "
+"'slaapplek*'"
+msgstr ""
+"Voor de naam van de resource in de OA omgeving in. Je kunt een * als "
+"wildcard gebruiken om meerdere resources te gebruiken. Bijvoorbeeld "
+"'slaapplek' of 'slaapplek*'"
+
+#: tpl/forms/edit.php:232
+msgid "Which mutation"
+msgstr "Welke prijsmutatie"
+
+#: tpl/frontend/history.php:7
+msgid "Type reservering"
+msgstr ""
+
+#: tpl/frontend/history.php:26
+msgid "You have no appointments."
+msgstr "Je hebt geen afspraken."
+
+#: tpl/frontend/invoices.php:5
+msgid "Invoicenr"
+msgstr "Factuurnr"
+
+#: tpl/frontend/invoices.php:9
+msgid "Actions"
+msgstr "Acties"
+
+#: tpl/frontend/invoices.php:35
+msgid "Volledig betalen"
+msgstr ""
+
+#: tpl/frontend/invoices.php:37
+msgid "Aanbetaling betalen"
+msgstr ""
+
+#: tpl/frontend/invoices.php:41
+msgid "Restant betalen"
+msgstr ""
+
+#: tpl/frontend/invoices.php:51
+msgid "You have no invoices."
+msgstr "Je hebt geen facturen."
+
+#: tpl/frontend/login-required.php:2
+msgid "Login required"
+msgstr "Inloggen is vereist"
+
+#: tpl/frontend/login-required.php:3
+msgid "You are required to log in to view this page."
+msgstr "Je moet ingelogd zijn om deze pagina te zien."
+
+#: tpl/frontend/settings.php:96
+msgid "Login credentials"
+msgstr "Inloggegevens"
+
+#: tpl/frontend/settings.php:97
+msgid ""
+"To change your password, please fill in both password fields. If you leave "
+"them empty, your password will not be changed."
+msgstr ""
+"Om je wachtwoord te wijzigen vul je beide onderstaande velden in. Indien je "
+"ze leeg laat wordt je wachtwoord niet aangepast."
+
+#: tpl/frontend/settings.php:111
+#, fuzzy
+msgid "Save settings"
+msgstr "Wijzigingen opslaan"
+
+#: tpl/transactions/create.php:11
+msgid "Consumer"
+msgstr "Klant"
+
+#: tpl/transactions/create.php:21 tpl/transactions/update.php:20
+#: tpl/transactions/view.php:20
+msgid "Invoice date"
+msgstr "Factuurdatum"
+
+#: tpl/transactions/create.php:25
+msgid "Invoice enddate"
+msgstr "Einddatum"
+
+#: tpl/transactions/create.php:30
+msgid "Rows"
+msgstr "Regels"
+
+#: tpl/transactions/create.php:41
+msgid "Prices are including VAT."
+msgstr "Bedragen zijn inclusief BTW."
+
+#: tpl/transactions/create.php:46
+msgid "Allow downpayment?"
+msgstr "Aanbetaling toestaan?"
+
+#: tpl/transactions/create.php:47
+msgid "Allow downpayment for this invoice."
+msgstr "Sta een aanbetaling toe voor deze factuur."
+
+#: tpl/transactions/create.php:52
+msgid "Downpayment"
+msgstr "Aanbetaling"
+
+#: tpl/transactions/create.php:56
+msgid "fixed"
+msgstr "vaste prijs"
+
+#: tpl/transactions/create.php:60
+msgid "payed before"
+msgstr "betaald voor"
+
+#: tpl/transactions/create.php:64
+msgid "percent"
+msgstr "percentage"
+
+#: tpl/transactions/create.php:76
+msgid "Send invoice to consumer?"
+msgstr "Factuur naar consument sturen per e-mail?"
+
+#: tpl/transactions/create.php:77
+msgid "Send this invoice to the consumer by email."
+msgstr "Stuur deze factuur naar de consument per e-mail."
+
+#: tpl/transactions/create.php:78
+msgid "Note: Invoices that are sent to consumer cannot be edited."
+msgstr "Opmerking: facturen die verstuurd zijn kun je niet meer aanpassen."
+
+#: tpl/transactions/list.php:3
+msgid "New invoice"
+msgstr "Nieuwe factuur"
+
+#: tpl/transactions/update.php:3
+msgid "Add payment for invoice"
+msgstr "Voeg betaling toe voor factuur"
+
+#: tpl/transactions/update.php:6 tpl/transactions/view.php:6
+msgid "Current payment status"
+msgstr "Huidige betaalstatus"
+
+#: tpl/transactions/update.php:12 tpl/transactions/view.php:12
+msgid "Invoice number"
+msgstr "Factuurnummer"
+
+#: tpl/transactions/update.php:24 tpl/transactions/view.php:24
+msgid "Exp date"
+msgstr "Einddatum"
+
+#: tpl/transactions/update.php:28 tpl/transactions/view.php:28
+msgid "Total sum"
+msgstr "Totaal"
+
+#: tpl/transactions/update.php:32 tpl/transactions/view.php:32
+msgid "Payed"
+msgstr "Betaald"
+
+#: tpl/transactions/update.php:52 tpl/transactions/view.php:53
+msgid "Paymethod"
+msgstr "Betaalmethode"
+
+#: tpl/transactions/update.php:54
+msgid "banking"
+msgstr "bankieren"
+
+#: tpl/transactions/update.php:55
+msgid "ideal"
+msgstr "iDeal transactie"
+
+#: tpl/transactions/view.php:3
+msgid "View payments for invoice"
+msgstr "Bekijk betalingen voor factuur"
+
+#: tpl/transactions/view.php:45
+msgid "Payments"
+msgstr "Betalingen"
+
+#: widget/class.dekaagcrm-ideal.php:12
+#, fuzzy
+msgid "De Kaag CRM Ideal Widget"
+msgstr "OnlineAfspraken.nl Widget"
+
+#: widget/class.dekaagcrm-ideal.php:13
+#, fuzzy
+msgid "Description of the De Kaag CRM iDeal widget"
+msgstr "Toont de maatwerk OnlineAfspraken.nl widget"
+
+#: widget/class.dekaagcrm-ideal.php:57
+msgid "This invoice was already paid"
+msgstr "Deze factuur is al betaald"
+
+#: widget/class.dekaagcrm-ideal.php:88
+msgid "Your payment was received succesfully"
+msgstr "Je betaling is succesvol ontvangen"
+
+#: widget/class.dekaagcrm-ideal.php:116
+msgid "Downpayment for"
+msgstr "Aanbetaling voor"
+
+#: widget/class.dekaagcrm-ideal.php:116
+msgid "Remainder for"
+msgstr "Herinnering voor"
+
+#: widget/class.dekaagcrm-ideal.php:139 widget/class.dekaagcrm-widget.php:48
+msgid "API key:"
+msgstr "API key:"
+
+#: widget/class.dekaagcrm-login.php:12
+#, fuzzy
+msgid "De Kaag CRM Login Widget"
+msgstr "OnlineAfspraken.nl Widget"
+
+#: widget/class.dekaagcrm-login.php:13
+#, fuzzy
+msgid "Description of the De Kaag CRM login widget"
+msgstr "Toont de maatwerk OnlineAfspraken.nl widget"
+
+#: widget/class.dekaagcrm-login.php:37 widget/class.dekaagcrm-login.php:43
+msgid "Unknown username or wrong password"
+msgstr "Onbekende gebruikersnaam of wachtwoord"
+
+#: widget/class.dekaagcrm-login.php:75
+msgid "Welcome"
+msgstr "Welkom"
+
+#: widget/class.dekaagcrm-login.php:77
+msgid "history"
+msgstr "historie"
+
+#: widget/class.dekaagcrm-login.php:79
+msgid "my settings"
+msgstr "mijn instellingen"
+
+#: widget/class.dekaagcrm-login.php:80
+msgid "logout"
+msgstr "uitloggen"
+
+#: widget/class.dekaagcrm-login.php:98
+msgid "Login"
+msgstr "Inloggen"
+
+#: widget/class.dekaagcrm-login.php:113
+msgid "Redirect URL after login:"
+msgstr "Redirect URL na inloggen:"
+
+#: widget/class.dekaagcrm-widget.php:12
+msgid "De Kaag CRM Widget"
+msgstr "OnlineAfspraken.nl Widget"
+
+#: widget/class.dekaagcrm-widget.php:13
+msgid "Description of the De Kaag CRM widget"
+msgstr "Toont de maatwerk OnlineAfspraken.nl widget"
+
+#: widget/class.dekaagcrm-widget.php:52
+msgid "API secret:"
+msgstr "API secret:"
+
+#: widget/class.dekaagcrm-widget.php:56
+msgid "API URL:"
+msgstr "API URL:"
+
+#. Plugin Name of the plugin/theme
+msgid "De Kaag CRM"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://onlineafspraken.nl"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Maatwerk CRM plugin voor De Kaag Zeilschool"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "OnlineAfspraken.nl"
+msgstr ""
+
+#, fuzzy
+#~ msgid "What is your Date of Birth?"
+#~ msgstr "Geboortedatum"
+
+#~ msgid "Title"
+#~ msgstr "Vraag"

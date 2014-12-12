@@ -1,0 +1,48 @@
+.consumer-required,
+.account-required {
+  display: none;
+}    
+
+.has-consumer,
+.has-account {
+  display: table-row;
+}
+
+.password-required {
+  display: none;
+}    
+
+.has-password {
+  display: table-row;
+}
+
+.downpayment-required {
+  display: none;
+}  
+
+.has-downpayment {
+  display: table-row;
+}
+	
+#add-persona-button {
+  margin-top: 10px;
+}
+
+.admin-form-row, 
+.admin-form-row-button {
+  position:relative;
+  border-bottom: #cecece 1px solid;
+  padding: 10px 0;
+  margin: 0;
+  width: 500px;
+}
+
+.admin-form-row-button {
+  border: none;
+}
+
+.delete-row {
+  position: absolute;
+  right: 0;
+  top: 15px;
+}
