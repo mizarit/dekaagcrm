@@ -35,7 +35,7 @@ register_deactivation_hook( __FILE__, array( 'DeKaagCRM', 'plugin_deactivation' 
 
 require_once( DEKAAGCRM__PLUGIN_DIR . 'class.dekaagcrm.php' );
 if ( is_admin() ) {
-  new BFIGitHubPluginUpdater( __FILE__, 'mizarit', 'dekaagcrm' );
+  new WPFDGitHubPluginUpdater( __FILE__, 'mizarit', 'dekaagcrm' );
 }
 
 require_once( DEKAAGCRM__PLUGIN_DIR . 'widget/class.dekaagcrm-widget.php' );
