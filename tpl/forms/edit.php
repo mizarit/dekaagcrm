@@ -19,7 +19,7 @@ $m = 0;
           ?>
             <div class="postbox " id="row-container-<?php echo $id; ?>" style="margin-bottom:3px;">
               <h3 class="hndle" style="padding-left:10px;margin: 2px 0;"><span><?php echo $row->rowtype == 'question' ? $row->title : __('Mutation', 'dekaagcrm').' '.$m; ?></span>
-              <a href="javascript:if(confirm('Weet je zeker dat je deze vraag of mutatie wilt verwijderen? Je kunt dit niet ongedaan magen. Indien vragen afhankelijk zijn van het antwoord op deze vraag moet je deze vragen corrigeren.')) {jQuery('#saveaction').val('deletequestion_<?php echo $row->id; ?>');jQuery('#editform').submit();}" style="top:5px;right:5px;" class="delete-row"><img src="/wp-content/plugins/dekaagcrm/img/delete.png" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
+              <a href="javascript:if(confirm('Weet je zeker dat je deze vraag of mutatie wilt verwijderen? Je kunt dit niet ongedaan magen. Indien vragen afhankelijk zijn van het antwoord op deze vraag moet je deze vragen corrigeren.')) {jQuery('#saveaction').val('deletequestion_<?php echo $row->id; ?>');jQuery('#editform').submit();}" style="top:5px;right:5px;" class="delete-row"><img src="<?php echo plugins_url('img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
               </h3>
               <div class="inside" style="margin-bottom: 0;">
               
@@ -162,7 +162,7 @@ $m = 0;
                             </select>
                           </div>
                           <div style="clear:both;"></div>
-                          <a href="javascript:if(confirm('Weet je zeker dat je deze voorwaarde wilt verwijderen? Je kunt dit niet ongedaan maken.')){javascript:removeValidator(<?php echo $row->id; ?>, <?php echo $k; ?>);}" class="delete-row"><img src="/wp-content/plugins/dekaagcrm/img/delete.png" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
+                          <a href="javascript:if(confirm('Weet je zeker dat je deze voorwaarde wilt verwijderen? Je kunt dit niet ongedaan maken.')){javascript:removeValidator(<?php echo $row->id; ?>, <?php echo $k; ?>);}" class="delete-row"><img src="<?php echo plugins_url('img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
                         </div>
                         <?php } ?>
                           
@@ -211,7 +211,7 @@ $m = 0;
                           </select>
                           <img src="/wp-content/plugins/dekaagcrm/img/help.png" title="<?php echo __('Specify a mutation to the total sum if this answer is selected. The value can be positive and negative. For example \'10 percent\' or \'-30 euro\'. The calculation is aplied to the current total, which can be modified by questions and mutations above.', 'dekaagcrm'); ?>" alt=""><br>
                           Vereist beschikbare resource <input type="text" name="resource-<?php echo $row->id; ?>-<?php echo $key; ?>" id="resource-<?php echo $row->id; ?>-<?php echo $key; ?>" value="<?php echo $mutation['resource']; ?>" style="width:250px;"> <img src="/wp-content/plugins/dekaagcrm/img/help.png" title="<?php echo __('Enter the name of the resource within your OA environment. You can use * as a wildcard to include multiple resources. For example \'slaapplek\' or \'slaapplek*\'', 'dekaagcrm'); ?>" alt="">
-                          <a href="javascript:if(confirm('Weet je zeker dat je dit antwoord wilt verwijderen? Je kunt dit niet ongedaan maken. Indien er andere vragen afhankelijk zijn van deze vraag moet je deze vragen corrigeren.')){removeAnswer(<?php echo $row->id; ?>, <?php echo $key; ?>);}" class="delete-row"><img src="/wp-content/plugins/dekaagcrm/img/delete.png" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
+                          <a href="javascript:if(confirm('Weet je zeker dat je dit antwoord wilt verwijderen? Je kunt dit niet ongedaan maken. Indien er andere vragen afhankelijk zijn van deze vraag moet je deze vragen corrigeren.')){removeAnswer(<?php echo $row->id; ?>, <?php echo $key; ?>);}" class="delete-row"><img src="<?php echo plugins_url('img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
                         </div>
                       <?php 
                       }
