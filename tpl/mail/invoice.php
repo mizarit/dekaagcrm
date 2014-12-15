@@ -72,7 +72,7 @@ a {
 Overige betalingvoorwaarden zoals aanbetaling zijn vermeld op de bijgevoegde factuur.
 <?php } ?>
 </p>
-<?php $hash = crypt($invoicenr, $invoicenr.'DEKAAG'); ?>
+<?php $hash = substr(md5($invoice->invoicenr.'DEKAAG123456789123456789'),8,16); ?>
 <p>U kunt ook de factuur direct online afrekenen met iDeal.</p>
 <p><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/betalen?invoice=<?php echo $invoicenr; ?>&hash=<?php echo $hash; ?>">Klik hier</a> om <strong>de factuur a € <?php echo number_format($total,2,',','.'); ?></strong>, minus eventuele aanbetaling, met iDeal af te rekenen.</p>
 <?php if ($downpayment) { ?>

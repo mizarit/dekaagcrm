@@ -418,12 +418,12 @@ class DeKaagCRMListInvoices extends WP_List_Table {
 
     function column_title($item){
         //Build row actions
-        if ($item['status'] == 'pending' || $item['status'] == 'credit') {
-          if ($item['title'] == '') {
+        if ($item['status'] == __('pending', 'dekaagcrm') || $item['status'] == __('credit', 'dekaagcrm')) {
+          if ($item['invoicenr'] == '') {
             $actions['edit'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'edit',$item['ID'], __('Edit', 'dekaagcrm'));
             $actions['delete'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'delete',$item['ID'], __('Delete', 'dekaagcrm'));
           }
-          if ($item['status'] == 'credit' && $item['title'] != '') {
+          if ($item['status'] ==  __('credit', 'dekaagcrm') && $item['title'] != '') {
             $actions['download'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'download',$item['ID'], __('Download PDF', 'dekaagcrm'));
           }
           

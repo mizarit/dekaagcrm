@@ -13,8 +13,7 @@
   <?php foreach ($invoices as $i => $invoice) {
     if ($invoice->getTotalStr(false) == 0) continue; 
     $downpayment = $invoice->downpayment != 'none' ? ($invoice->downpayment == 'fixed' ? $invoice->dpvalue : ($invoice->getTotalStr(false)/100)*round($invoice->dpvalue) ) : false;
-      
-    $hash = crypt($invoice->invoicenr, $invoice->invoicenr.'DEKAAG');
+    $hash = substr(md5($invoice->invoicenr.'DEKAAG123456789123456789'),8,16); 
 ?>
     <tr <?php if ($i%2==0) echo ' class="odd"'; ?>>
     

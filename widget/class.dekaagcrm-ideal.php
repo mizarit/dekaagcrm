@@ -30,19 +30,18 @@ class DeKaagCRM_Ideal extends WP_Widget {
 	  echo $args['before_widget'];
 
 	  if (in_array($_SERVER['REMOTE_ADDR'], array('94.209.9.24', '192.168.8.1'))) {
-	    var_dump($_GET);
+	    /*var_dump($_GET);
 	    var_dump($instance);
 	    var_dump($_SERVER);
 	    var_dump($_REQUEST);
-	    var_dump($_SESSION);
+	    var_dump($_SESSION);*/
 	  }
+	  
 	  if (!empty($instance['mollie_key']) && isset($_GET['invoice'])) {
 	    
 	    $invoice = DeKaagInvoice::model()->findByCode($_GET['invoice']);
-	    
 	    if ($invoice->id > 0) {
-  	    $hash = crypt($invoice->invoicenr, $invoice->invoicenr.'DEKAAG');
-  	    
+  	    $hash = substr(md5($invoice->invoicenr.'DEKAAG123456789123456789'),8,16);
   	    if (isset($_GET['hash']) && $_GET['hash'] == $hash) {
     	    $total = $invoice->getTotalRemainingStr(false);
     	    $downpayment = false;

@@ -135,12 +135,12 @@ class DeKaagCRM {
   	$charset_collate = $wpdb->get_charset_collate();
   	
   	$sqls = array();
- 
+  	
   	if (!(bool)$wpdb->query("SELECT * FROM `{$prefix}form` WHERE id = 3")) {
       $sqls[] = "INSERT INTO `{$prefix}form` (`id`, `title`) VALUES (3, 'Inschrijfformulier stap 1 Spaarnwoude'), (4, 'Inschrijfformulier stap 2 Spaarnwoude');";
   	}
     $sqls[] = "ALTER TABLE `{$prefix}appointment` ADD `company` INT( 11 ) NOT NULL AFTER `info`;";
-    $sqls[] = "ALTER TABLE `{$prefix}invoice` ADD `company` INT( 11 ) NOT NULL AFTER `info`;";
+    $sqls[] = "ALTER TABLE `{$prefix}invoice` ADD `company` INT( 11 ) NOT NULL AFTER `id`;";
     $sqls[] = "ALTER TABLE `{$prefix}relation` ADD `insertions` VARCHAR( 255 ) NOT NULL AFTER `first_name`;";
     $sqls[] = "ALTER TABLE `{$prefix}persona`  ADD `first_name` VARCHAR(255) NOT NULL AFTER `title`,  ADD `insertions` VARCHAR(255) NOT NULL AFTER `first_name`,  ADD `last_name` VARCHAR(255) NOT NULL AFTER `insertions`;";
     
