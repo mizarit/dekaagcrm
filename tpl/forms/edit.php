@@ -2,6 +2,7 @@
     <div id="icon-users" class="icon32"><br/></div>
       <h2><?php echo $title; ?></h2>
       <form novalidate="novalidate" class="validate" id="editform" name="editform" method="post" action="">
+      <input type="hidden" id="saveaction" name="saveaction" value="save">
         <table class="form-table">
         	<tbody>
           	<tr class="form-field">
@@ -95,7 +96,7 @@ $m = 0;
                       $validators = json_decode($row->validators, true);
                       $c = count($validators);
                       $validatorcount[$row->id] = $c;
-                      for ($i = $c; $i < 20; $i++) {
+                      for ($i = $c; $i < 5; $i++) {
                         $validators[$i] = array(
                           'validate' => 'none',
                           array('validator' => 'in', 'value' => '')
@@ -182,7 +183,7 @@ $m = 0;
                       $mutations = json_decode($row->mutations, true);
                       
                       $answercount[$row->id] = count($answers);
-                      for ($i = $answercount[$row->id]; $i < 20; $i++) {
+                      for ($i = $answercount[$row->id]; $i < 11; $i++) {
                         $answers[$i] = '';
                         $mutations[$i] = array(
                           'vat' => 21,
@@ -253,7 +254,7 @@ $m = 0;
             </div>
           
         <?php } ?>
-        <input type="hidden" id="saveaction" name="saveaction" value="save">
+        
         <button type="button" onclick="jQuery('#saveaction').val('addquestion');jQuery('#editform').submit();" class="button button-secondary">vraag toevoegen</button>
         <button type="button" onclick="jQuery('#saveaction').val('addmutation');jQuery('#editform').submit();" class="button button-secondary">mutatie toevoegen</button>
         
