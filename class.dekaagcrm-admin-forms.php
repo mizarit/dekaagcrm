@@ -18,7 +18,6 @@ class DeKaagCRM_Admin_forms {
 	
 	protected static function page_dekaagcrm_forms_list()
 	{
-
 	  if (isset($_GET['s'])) {
 	    $s = $_GET['s'];
 	    $models = DeKaagForm::model()->findAllByAttributes(new DeKaagCriteria(
@@ -102,112 +101,29 @@ class DeKaagCRM_Admin_forms {
     if (!$rows) $rows = array();
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $validate = true;
-      $object->title = $_POST['title'];
-      
-      foreach ($rows as $k => $row) {
-        $row->title = $row->rowtype == 'question' ? $_POST['title-'.$row->id] : 'mutation'; 
-        $row->explanation = $_POST['explanation-'.$row->id]; 
-        $row->fieldtype = $_POST['fieldtype-'.$row->id]; 
-        $row->default = $_POST['default-'.$row->id] == 'none' ? null : (int)$_POST['default-'.$row->id]; 
-        $row->oninvoice = $_POST['oninvoice-'.$row->id]; 
+      if ($_POST['saveaction'] == 'save') {
+        $validate = true;
+        $object->title = $_POST['title'];
+       
+        if (!DeKaagCRM_Admin::validate($_POST['title'], 'required')) {
+  	      $errors['title'] = __('Title is required', 'dekaagcrm');
+  	    }
+    	    
+        if (count($errors) > 0) $validate = false;
         
-        $answers = $mutations = $validators = array();
-        
-        foreach($_POST as $key => $value) {
-          $l = strlen($row->id);
-          if (substr($key,0,8+$l) == 'answer-'.$row->id.'-') {
-            $answer = $value;
-            if ($answer != '') {
-              $answer_id = substr($key,8+$l);
-              $answers[$answer_id] = $answer;
-            }
-          }
-          if (substr($key,0,10+$l) == 'mutation-'.$row->id.'-') {
-            $mutation = $value;
-            $mutation_id = substr($key,10+$l);
-            if (isset($answers[$mutation_id])) {
-              $type = $_POST['mutationtype-'.$row->id.'-'.$mutation_id];
-              $vat = $_POST['vat-'.$row->id.'-'.$mutation_id];
-              $resource = $_POST['resource-'.$row->id.'-'.$mutation_id];
-              $mutations[$mutation_id] = array(
-                'mutation' => $mutation,
-                'type' => $type,
-                'resource' => $resource,
-                'vat' => $vat
-              );
-            }
-          }
-          
-          if (substr($key,0,11+$l) == 'validator-'.$row->id.'-') {
-            $validate = $value;
-            $validator_id = substr($key,11+$l);
-            $validator = $_POST['validator-'.$row->id.'-'.$validator_id.'-validator'];
-            $value = $_POST['validator-'.$row->id.'-'.$validator_id.'-value'];
-            $at = $_POST['validator-'.$row->id.'-'.$validator_id.'-apptype'];
-            if ($validate == 'answer') {
-              $validate = $_POST['validator-'.$row->id.'-'.$validator_id.'-q'];
-              $val = 'is';
-              $value = $_POST['validator-'.$row->id.'-'.$validator_id.'-a'];
-            }
-            if ($validate == 'lastbookdate') {
-              $value = date('Y-m-d', strtotime($_POST['validator-'.$row->id.'-'.$validator_id.'-value-lastbookdate']));
-            }
-            if ($validate == 'date') {
-              $value = date('Y-m-d', strtotime($_POST['validator-'.$row->id.'-'.$validator_id.'-value-date']));
-            }
-            if ($validate == 'age') {
-              $value = $_POST['validator-'.$row->id.'-'.$validator_id.'-value-age'];
-            }
-            if ($validate == 'apptype') {
-              $value = is_array($at) ? implode(',',$at) : '';
-              $validator = $_POST['validator-'.$row->id.'-'.$validator_id.'-validator'];
-            }
-            if (is_numeric($validator_id)) {
-              if ($validate == 'apptype' && $validator == 'greater') {
-                // impossible setting, this is a new unused row
-              }
-              else if (!$validate || is_null(validate)) {
-                
-              }
-              else if ($validate == 'apptype' && $value == '') {
-                // impossible setting, this is a new unused row
-              }
-              else {
-                $validators[$validator_id] = array(
-                  'validate' => $validate,
-                  array(
-                    'validator' => $validator,
-                    'value' => $value              
-                  )
-                );
-              }
-            }
-          }
+        if ($validate) {
+  	      $object->save();
+  	      foreach ($rows as $row) {
+  	        if ($row->title == '') {
+  	          $row->delete(); 
+  	        }
+  	      }
+  	      if ($_POST['saveaction'] == 'save') {
+  	        echo "<script type=\"text/javascript\">window.location.href='/wp-admin/admin.php?page=dekaagcrm_forms';</script>";
+  	        exit;
+  	      }
         }
-        
-        $test = array();
-        foreach ($validators as $k => $v) {
-          $hash = $v['validate'].'xx'.$v[0]['validator'].'xx'.$v[0]['value'];
-          if (isset($test[$hash])) {
-            unset($validators[$k]);
-          }
-          $test[$hash] = true;
-        }
-        $answers = array_values($answers);
-        $mutations = array_values($mutations);
-        $validators = array_values($validators);
-        
-        $row->answers = json_encode($answers);
-        $row->mutations = json_encode($mutations);
-        $row->validators = json_encode($validators);
-        
       }
-      if (!DeKaagCRM_Admin::validate($_POST['title'], 'required')) {
-	      $errors['title'] = __('Title is required', 'dekaagcrm');
-	    }
-  	    
-      if (count($errors) > 0) $validate = false;
       
       if ($_POST['saveaction'] != 'save') {
         if (substr($_POST['saveaction'],0,14) == 'deletequestion') {
@@ -228,27 +144,180 @@ class DeKaagCRM_Admin_forms {
           $row->mutations = json_encode(array());
           $row->validators = json_encode(array());
           $rows[] = $row;
+          foreach ($rows as $row) {
+            $row->save();
+          }
         }
-      }
-      
-      if ($validate) {
-	      $object->save();
-	      foreach ($rows as $row) {
-	        if ($row->title == '') {
-	          $row->delete(); 
-	        }
-	        else {
-	          $row->save();
-	        }
-	      }
-	      if ($_POST['saveaction'] == 'save') {
-	        echo "<script type=\"text/javascript\">window.location.href='/wp-admin/admin.php?page=dekaagcrm_forms';</script>";
-	        exit;
-	      }
       }
     }
   
 	  DeKaagCRM_Admin::render('edit', array(
+        'object' => $object,
+        'rows' => $rows,
+        'title' => $title,
+        'appTypes' => $appTypes,
+        'errors' => $errors
+    ));
+	}
+	
+	protected static function page_dekaagcrm_forms_editRow()
+	{
+	  $errors = array();
+      
+	  $_SESSION['company'] = in_array($_GET['form'], array(3,4)) ? 2 : 1;
+	  
+	  wp_enqueue_style('dekaagcrm-admin', plugins_url('css/admin.css', __FILE__));
+	  require_once( DEKAAGCRM__PLUGIN_DIR .'lib/vendor/onlineafspraken/lib/widget.php');
+    $widget = Widget::getInstance();
+    $appointmentTypes = $widget->sendRequest('getAppointmentTypes', array());
+
+    $appTypes = array();
+    if (isset($appointmentTypes['AppointmentType'])) {
+      foreach ($appointmentTypes['AppointmentType'] as $key => $appointmentType) {
+        if ((bool)$appointmentType['CanBeBookedByConsumer']) {
+          $appTypes[$appointmentType['Id']] = $appointmentType['Name'];
+        }
+      }
+    }
+    
+    $create = false;
+    if ($_GET['action'] == 'editRow') {
+      $object = DeKaagForm::model()->findByPk($_GET['form']);
+      $title = __( 'Edit form row' , 'dekaagcrm');
+    }
+    else {
+      $object = new DeKaagForm;
+      $title = __( 'New form row' , 'dekaagcrm');
+      $create = true;
+    }
+
+    $rows = $object->rows;
+    if (!$rows) $rows = array();
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if ($_POST['saveaction'] == 'save') {
+        $validate = true;
+        
+        foreach ($rows as $k => $row) {
+          
+          if ($row->id != $_GET['row']) continue;
+          
+          $row->title = $row->rowtype == 'question' ? $_POST['title-'.$row->id] : 'mutation'; 
+          $row->explanation = $_POST['explanation-'.$row->id]; 
+          $row->fieldtype = $_POST['fieldtype-'.$row->id]; 
+          $row->default = $_POST['default-'.$row->id] == 'none' ? null : (int)$_POST['default-'.$row->id]; 
+          $row->oninvoice = $_POST['oninvoice-'.$row->id]; 
+          
+          $answers = $mutations = $validators = array();
+          
+          foreach($_POST as $key => $value) {
+            $l = strlen($row->id);
+            if (substr($key,0,8+$l) == 'answer-'.$row->id.'-') {
+              $answer = $value;
+              if ($answer != '') {
+                $answer_id = substr($key,8+$l);
+                $answers[$answer_id] = $answer;
+              }
+            }
+            if (substr($key,0,10+$l) == 'mutation-'.$row->id.'-') {
+              $mutation = $value;
+              $mutation_id = substr($key,10+$l);
+              if (isset($answers[$mutation_id])) {
+                $type = $_POST['mutationtype-'.$row->id.'-'.$mutation_id];
+                $vat = $_POST['vat-'.$row->id.'-'.$mutation_id];
+                $resource = $_POST['resource-'.$row->id.'-'.$mutation_id];
+                $mutations[$mutation_id] = array(
+                  'mutation' => $mutation,
+                  'type' => $type,
+                  'resource' => $resource,
+                  'vat' => $vat
+                );
+              }
+            }
+            
+            if (substr($key,0,11+$l) == 'validator-'.$row->id.'-') {
+              $validate = $value;
+              $validator_id = substr($key,11+$l);
+              $validator = $_POST['validator-'.$row->id.'-'.$validator_id.'-validator'];
+              $value = $_POST['validator-'.$row->id.'-'.$validator_id.'-value'];
+              $at = $_POST['validator-'.$row->id.'-'.$validator_id.'-apptype'];
+              if ($validate == 'answer') {
+                $validate = $_POST['validator-'.$row->id.'-'.$validator_id.'-q'];
+                $val = 'is';
+                $value = $_POST['validator-'.$row->id.'-'.$validator_id.'-a'];
+              }
+              if ($validate == 'lastbookdate') {
+                $value = date('Y-m-d', strtotime($_POST['validator-'.$row->id.'-'.$validator_id.'-value-lastbookdate']));
+              }
+              if ($validate == 'date') {
+                $value = date('Y-m-d', strtotime($_POST['validator-'.$row->id.'-'.$validator_id.'-value-date']));
+              }
+              if ($validate == 'age') {
+                $value = $_POST['validator-'.$row->id.'-'.$validator_id.'-value-age'];
+              }
+              if ($validate == 'apptype') {
+                $value = is_array($at) ? implode(',',$at) : '';
+                $validator = $_POST['validator-'.$row->id.'-'.$validator_id.'-validator'];
+              }
+              if (is_numeric($validator_id)) {
+                if ($validate == 'apptype' && $validator == 'greater') {
+                  // impossible setting, this is a new unused row
+                }
+                else if (!$validate || is_null(validate)) {
+                  
+                }
+                else if ($validate == 'apptype' && $value == '') {
+                  // impossible setting, this is a new unused row
+                }
+                else {
+                  $validators[$validator_id] = array(
+                    'validate' => $validate,
+                    array(
+                      'validator' => $validator,
+                      'value' => $value              
+                    )
+                  );
+                }
+              }
+            }
+          }
+          
+          $test = array();
+          foreach ($validators as $k => $v) {
+            $hash = $v['validate'].'xx'.$v[0]['validator'].'xx'.$v[0]['value'];
+            if (isset($test[$hash])) {
+              unset($validators[$k]);
+            }
+            $test[$hash] = true;
+          }
+          $answers = array_values($answers);
+          $mutations = array_values($mutations);
+          $validators = array_values($validators);
+          
+          $row->answers = json_encode($answers);
+          $row->mutations = json_encode($mutations);
+          $row->validators = json_encode($validators);
+          
+        }
+    	    
+        if (count($errors) > 0) $validate = false;
+        
+        if ($validate) {
+  	      foreach ($rows as $row) {
+  	        if ($row->id == $_GET['row']) {
+  	          $row->save();
+  	        }
+  	      }
+  	      if ($_POST['saveaction'] == 'save') {
+  	        echo "<script type=\"text/javascript\">window.location.href='/wp-admin/admin.php?page=dekaagcrm_forms&action=edit&form=".$object->id."';</script>";
+  	        exit;
+  	      }
+        }
+      }
+      
+    }
+  
+	  DeKaagCRM_Admin::render('editRow', array(
         'object' => $object,
         'rows' => $rows,
         'title' => $title,
