@@ -689,7 +689,6 @@ class Widget extends WidgetCore
     $appTypesArr = $_SESSION['booking']['appTypesArr'];
     $apptypeDurations = $_SESSION['booking']['appTypesDurations'];
     $categories = $_SESSION['booking']['categoriesArr'];
-
     if ($this->hasRequestParameter('apptype')) {
       $_SESSION['booking']['apptypeId'] = $this->getRequestParameter('apptype');
       $_SESSION['booking']['category'] = $this->getRequestParameter('category');
@@ -979,14 +978,44 @@ class Widget extends WidgetCore
   {
     $apptype = isset($_SESSION['booking']) ? $_SESSION['booking']['appTypesArr'][$_SESSION['booking']['categoriesArr'][ $_SESSION['booking']['category']]][$_SESSION['booking']['apptypeId']] : '';
     $resource = isset($_SESSION['booking']['resourcesArr'][$_SESSION['booking']['resourceId']]) ? $_SESSION['booking']['resourcesArr'][$_SESSION['booking']['resourceId']] : '';
-    setlocale(LC_TIME, Widget::$locale);
+//    setlocale(LC_TIME, Widget::$locale);
+//    setlocale(LC_TIME, 'en_US');
     $date = strftime('%A %e %B %Y', strtotime($_SESSION['booking']['date']));
     $time = $_SESSION['booking']['time'];
 
+    $enddate = strftime('%A %e %B %Y', strtotime('+'.$_SESSION['booking']['appTypesDurations'][$_SESSION['booking']['apptypeId']]['Buffer'].' days', strtotime($_SESSION['booking']['date'])));
+
+    // great, no locale support on WP site 
+    $replacements = array(
+      'Monday' => 'maandag',
+      'Tuesday' => 'dinsdag',
+      'Wednesday' => 'woensdag',
+      'Thursday' => 'donderdag',
+      'Friday' => 'vrijdag',
+      'Saturday' => 'zaterdag',
+      'Sunday' => 'zondag',
+      'January' => 'januar',
+      'February' => 'februari',
+      'March' => 'maart',
+      'April' => 'april',
+      'May' => 'mei',
+      'June' => 'juni',
+      'July' => 'juli',
+      'August' => 'augustus',
+      'September' => 'september',
+      'October' => 'oktober',
+      'November' => 'november',
+      'December' => 'december'
+    );
+    foreach ($replacements as $a => $b) {
+      $date = str_replace($a, $b, $date);
+      $enddate = str_replace($a, $b, $enddate);
+    }
+     
     $appointmentBlock = <<<EOT
 <p><strong>{$apptype}</strong><br>
 Aankomst op {$date}<br>
-{$resource}</p>\n
+Vertrek op {$enddate}</p>\n
 EOT;
     return $appointmentBlock;
 }

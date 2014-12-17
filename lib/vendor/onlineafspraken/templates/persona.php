@@ -8,8 +8,8 @@
 	<button type="button" onclick="widget.startBooking();"><?php echo __('Aanpassen'); ?></button>
 </div>
 
-<h2><?php echo __('Add persona', 'dekaagcrm'); ?></h2>
-<p><?php echo __('Vul het onderstaande formulier in om een persona toe te voegen.'); ?></p>
+<h2><?php echo __('Persoon toevoegen', 'dekaagcrm'); ?></h2>
+<p><?php echo __('Vul het onderstaande formulier in om een persoon toe te voegen.'); ?></p>
 
 <div id="error-container">
   <ul class="form-errors" id="form-errors">
