@@ -96,7 +96,7 @@ $m = 0;
                       $validators = json_decode($row->validators, true);
                       $c = count($validators);
                       $validatorcount[$row->id] = $c;
-                      for ($i = $c; $i < 5; $i++) {
+                      for ($i = $c; $i < 6; $i++) {
                         $validators[$i] = array(
                           'validate' => 'none',
                           array('validator' => 'in', 'value' => '')
@@ -183,7 +183,7 @@ $m = 0;
                       $mutations = json_decode($row->mutations, true);
                       
                       $answercount[$row->id] = count($answers);
-                      for ($i = $answercount[$row->id]; $i < 11; $i++) {
+                      for ($i = $answercount[$row->id]; $i < 16; $i++) {
                         $answers[$i] = '';
                         $mutations[$i] = array(
                           'vat' => 21,
@@ -210,9 +210,9 @@ $m = 0;
                             <option value="6" <?php if($mutation['vat']=='6') echo ' selected="selected"'; ?>>6% BTW</option>
                             <option value="21" <?php if($mutation['vat']=='21') echo ' selected="selected"'; ?>>21% BTW</option>
                           </select>
-                          <img src="/wp-content/plugins/dekaagcrm/img/help.png" title="<?php echo __('Specify a mutation to the total sum if this answer is selected. The value can be positive and negative. For example \'10 percent\' or \'-30 euro\'. The calculation is aplied to the current total, which can be modified by questions and mutations above.', 'dekaagcrm'); ?>" alt=""><br>
-                          Vereist beschikbare resource <input type="text" name="resource-<?php echo $row->id; ?>-<?php echo $key; ?>" id="resource-<?php echo $row->id; ?>-<?php echo $key; ?>" value="<?php echo $mutation['resource']; ?>" style="width:250px;"> <img src="/wp-content/plugins/dekaagcrm/img/help.png" title="<?php echo __('Enter the name of the resource within your OA environment. You can use * as a wildcard to include multiple resources. For example \'slaapplek\' or \'slaapplek*\'', 'dekaagcrm'); ?>" alt="">
-                          <a href="javascript:if(confirm('Weet je zeker dat je dit antwoord wilt verwijderen? Je kunt dit niet ongedaan maken. Indien er andere vragen afhankelijk zijn van deze vraag moet je deze vragen corrigeren.')){removeAnswer(<?php echo $row->id; ?>, <?php echo $key; ?>);}" class="delete-row"><img src="<?php echo plugins_url('../..img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
+                          <img src="<?php echo plugins_url('../../img/help.png', __FILE__); ?>" title="<?php echo __('Specify a mutation to the total sum if this answer is selected. The value can be positive and negative. For example \'10 percent\' or \'-30 euro\'. The calculation is aplied to the current total, which can be modified by questions and mutations above.', 'dekaagcrm'); ?>" alt=""><br>
+                          Vereist beschikbare resource <input type="text" name="resource-<?php echo $row->id; ?>-<?php echo $key; ?>" id="resource-<?php echo $row->id; ?>-<?php echo $key; ?>" value="<?php echo $mutation['resource']; ?>" style="width:250px;"> <img src="<?php echo plugins_url('../../img/help.png', __FILE__); ?>" title="<?php echo __('Enter the name of the resource within your OA environment. You can use * as a wildcard to include multiple resources. For example \'slaapplek\' or \'slaapplek*\'', 'dekaagcrm'); ?>" alt="">
+                          <a href="javascript:if(confirm('Weet je zeker dat je dit antwoord wilt verwijderen? Je kunt dit niet ongedaan maken. Indien er andere vragen afhankelijk zijn van deze vraag moet je deze vragen corrigeren.')){removeAnswer(<?php echo $row->id; ?>, <?php echo $key; ?>);}" class="delete-row"><img src="<?php echo plugins_url('../../img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
                         </div>
                       <?php 
                       }
@@ -347,4 +347,4 @@ function changeValidator(row_id, validator_id, elem)
     selectQuestion(row_id, validator_id, jQuery('#validator-'+row_id+'-'+validator_id+'-q'));
   }
 }
-</script>
+</script>	
