@@ -5,6 +5,27 @@ class DeKaagCRM_Admin_forms {
 	{
     ob_start();
         
+    if (isset($_GET['export'])) {
+	    $formrows = DeKaagFormRow::model()->findAll();
+	    $data = array();
+	    foreach ($formrows as $formrow) {
+	      $data[] = array(
+	       'id' => $formrow->id,
+	       'form_id' => $formrow->{$formrow->prefix().'form_id'},
+	       'title' => $formrow->title,
+	       'explanation' => $formrow->explanation,
+	       'oninvoice' => $formrow->oninvoice,
+	       'answers' => $formrow->answers,
+	       'mutations' => $formrow->mutations,
+	       'validators' => $formrow->validators,
+	       'default' => $formrow->default,
+	       'rowtype' => $formrow->rowtype,
+	       'fieldtype' => $formrow->fieldtype,
+	      );
+	    }
+	    return $data;
+	  }
+	  
     $action = isset($_GET['action']) && $_GET['action'] != -1 ? $_GET['action'] : 'list';
     $actionMethod = 'page_dekaagcrm_forms_'.$action;
     
