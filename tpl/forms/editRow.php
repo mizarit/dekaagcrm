@@ -139,7 +139,10 @@ $m = 0;
                             <?php 
                             $rows2 = DeKaagFormRow::model()->findAll();
                             foreach ($rows2 as $id2 => $row2) {
-                              if ($id2 > $id && $row2->rowtype == 'question') { 
+                              //if ($id2 > $id && $row2->rowtype == 'question') { 
+                              if ($row2->rowtype == 'question') { 
+                                if(in_array($object->id, array(1,2)) && !in_array($row2->{$row2->prefix().'form_id'}, array(1,2))) continue;
+                                if(in_array($object->id, array(3,4)) && !in_array($row2->{$row2->prefix().'form_id'}, array(3,4))) continue;
                                 if($row2->fieldtype == 'radio' || $row2->fieldtype == 'select') {
                                 ?>
                               <option <?php if ($row2->id == $validator['validate']) echo ' selected="selected"'; ?> value="<?php echo $row2->id; ?>"><?php echo $row2->title; ?></option>
