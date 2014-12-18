@@ -462,6 +462,38 @@ EOT;
    
    $response['BookableDays'] = $tmp2;
    
+   
+   // great, no locale support on WP site 
+    $replacements = array(
+      'Monday' => 'maandag',
+      'Tuesday' => 'dinsdag',
+      'Wednesday' => 'woensdag',
+      'Thursday' => 'donderdag',
+      'Friday' => 'vrijdag',
+      'Saturday' => 'zaterdag',
+      'Sunday' => 'zondag',
+      'January' => 'januar',
+      'February' => 'februari',
+      'March' => 'maart',
+      'April' => 'april',
+      'May' => 'mei',
+      'June' => 'juni',
+      'July' => 'juli',
+      'August' => 'augustus',
+      'September' => 'september',
+      'October' => 'oktober',
+      'November' => 'november',
+      'December' => 'december'
+    );
+    foreach ($replacements as $a => $b) {
+      $response['BookableTimeStr'] = str_replace($a, $b, $response['BookableTimeStr']);
+      foreach ($response['BookableDayStr'] as $k => $v) {
+        $v = str_replace($a, $b, $v);
+        $response['BookableDayStr'][$k] = $v;
+      }
+    }
+    
+    
     return $response;
   }
 
