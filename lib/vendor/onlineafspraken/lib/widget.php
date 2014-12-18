@@ -36,6 +36,10 @@ class Widget extends WidgetCore
 
     $apptypeDurations = array();
 
+    if (isset($_SESSION['booking']['answers'])) {
+      unset($_SESSION['booking']['answers']);
+    }
+    
     if (isset($appointmentTypes['AppointmentType'])) {
       foreach ($appointmentTypes['AppointmentType'] as $key => $appointmentType) {
         if (!(bool)$appointmentType['CanBeBookedByConsumer']) {
