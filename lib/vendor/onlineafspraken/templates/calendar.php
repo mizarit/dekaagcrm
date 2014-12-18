@@ -8,8 +8,7 @@
     <table id="booking-schedule" class="booking-schedule">
       <thead>
         <tr>
-          <th>Aankomstdatum</th>
-          <th>Soort vakantie</th>
+          <th colspan="2">Reservering</th>
           <th>Duur</th>
         </tr>
       </thead>
