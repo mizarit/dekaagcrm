@@ -5,7 +5,14 @@
 		<div id="widget-facility-container">
       <div class="form-row" id="widget-row-facility">
         <div class="form-label" style="display:block;width:300px;"><label for="widget-apptype"><?php echo __('Maak je keuze'); ?></label></div>
-        <?php echo __select_tag('widget-facility', $selectedCategory, $categories, array('onchange' => 'widget.update(\'facility\', \'on facility change\');')); ?>
+        <?php 
+        $opts = array();
+        foreach($categories as $k => $v) {
+          $opts[$k] = str_replace('**', '&amp;', $v);
+        }
+        ?>
+
+        <?php echo __select_tag('widget-facility', $selectedCategory, $opts, array('onchange' => 'widget.update(\'facility\', \'on facility change\');')); ?>
       </div>
 		</div>
 		<?php 

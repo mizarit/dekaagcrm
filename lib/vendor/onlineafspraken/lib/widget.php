@@ -46,7 +46,7 @@ class Widget extends WidgetCore
           unset($appointmentTypes[$key]);
         }
         else {
-          $categoryName = ucfirst(str_replace('&', '', str_replace('_', ' ',trim($appointmentType['Category'], '~'))));
+          $categoryName = ucfirst(str_replace('&', '**', str_replace('_', ' ',trim($appointmentType['Category'], '~'))));
           $appTypesArr[$categoryName][$appointmentType['Id']] = $appointmentType['Name'];
           $categories[$categoryName] = true;
           if (!$firstCategory) {
