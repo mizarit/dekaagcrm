@@ -332,7 +332,7 @@ class DeKaagInvoice extends DeKaagBase {
     $pdf->SetStyle('B',false);
     $pdf->SetFontSize(10);
     $pdf->SetTextColor(33,33,33);
-    $pdf->Ln(18);
+    $pdf->Ln(8);
     $pdf->SetX(30);
     // 94 = 30 
     // 57 = 60
@@ -352,7 +352,7 @@ class DeKaagInvoice extends DeKaagBase {
       	
       if ($model->downpayment == 'fixed') {
         $pdf->SetX(33);
-        $pdf->Write(5, sprintf('U kunt een aanbetaling dpen van € %s voor %s om de reservering te bevestigen.', number_format($model->dpvalue,2,',','.'), date('d-m-Y', strtotime($model->dpdate))));
+        $pdf->Write(5, sprintf('U kunt een aanbetaling doen van € %s voor %s om de reservering te bevestigen.', number_format($model->dpvalue,2,',','.'), date('d-m-Y', strtotime($model->dpdate))));
         $pdf->Ln(5);
       }
       if ($model->downpayment == 'percent') {

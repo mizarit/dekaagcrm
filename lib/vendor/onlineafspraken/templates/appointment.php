@@ -3,9 +3,8 @@
 		<legend>Make appointment form</legend>
 		
 		<div id="widget-facility-container">
-      <h2><?php echo __('Afspraak categorie'); ?></h2>
       <div class="form-row" id="widget-row-facility">
-        <div class="form-label"><label for="widget-facility"><?php echo __('Categorie'); ?></label></div>
+        <div class="form-label" style="display:block;width:300px;"><label for="widget-apptype"><?php echo __('Maak je keuze'); ?></label></div>
         <?php echo __select_tag('widget-facility', $selectedCategory, $categories, array('onchange' => 'widget.update(\'facility\', \'on facility change\');')); ?>
       </div>
 		</div>
