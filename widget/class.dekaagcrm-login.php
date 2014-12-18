@@ -72,7 +72,7 @@ class DeKaagCRM_Login extends WP_Widget {
 	      $url = trim($_SERVER['REQUEST_URI'], '/');
 	      ?>
 	      
-	      <h3><?php echo __('Welcome'); ?> <?php echo $user->relation->title; ?></h3>
+	      <h3><?php echo __('Welkom'); ?> <?php echo $user->relation->title; ?></h3>
   	 <ul id="consumer-nav">
   	   <li <?php if ($url == 'geschiedenis') echo ' class="active-item"'; ?>><a href="/geschiedenis"><?php echo __('history', 'dekaagcrm'); ?></a></li>
   	   <li <?php if ($url == 'facturen') echo ' class="active-item"'; ?>><a href="/facturen"><?php echo __('invoices', 'dekaagcrm'); ?></a></li>

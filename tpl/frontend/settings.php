@@ -19,7 +19,7 @@
         <input type="text" value="<?php echo $object->first_name; ?>" id="first_name" name="first_name">
       </div>
       <div class="form-row">
-        <div class="form-label"><label for="insertions"><?php echo __('Insertions', 'dekaagcrm'); ?></label></div>
+        <div class="form-label"><label for="insertions"><?php echo __('Tussenvoegsels', 'dekaagcrm'); ?></label></div>
         <input type="text" value="<?php echo $object->insertions; ?>" id="insertions" name="insertions">
       </div>
       <div class="form-row <?php if(isset($errors['last_name'])) echo 'form-invalid'; ?>">
@@ -62,7 +62,7 @@
         <input type="text" value="<?php echo $persona->first_name; ?>" id="persona_<?php echo $c; ?>_first_name" name="persona_first_name[<?php echo $c; ?>]">
       </div>	
       <div class="form-row">
-    	  <div class="form-label"><label for="persona_<?php echo $c; ?>_insertions"><?php echo __('Insertions', 'dekaagcrm'); ?></label></div>
+    	  <div class="form-label"><label for="persona_<?php echo $c; ?>_insertions"><?php echo __('Tussenvoegsels', 'dekaagcrm'); ?></label></div>
         <input type="text" value="<?php echo $persona->insertions; ?>" id="persona_<?php echo $c; ?>_insertions" name="persona_insertions[<?php echo $c; ?>]">
       </div>
       <div class="form-row">
@@ -116,11 +116,11 @@
         <input type="password" autocomplete="off" id="password" name="password">
       </div>  		
       <div class="form-row <?php if(isset($errors['password'])) echo 'form-invalid'; ?>">
-        <div class="form-label"><label for="pass2"><?php echo __('Repeat Password'); ?></label></div>
+        <div class="form-label"><label for="pass2"><?php echo __('Wachtwoord controle'); ?></label></div>
         <input type="password" autocomplete="off" id="password_retyped" name="password_retyped">
       </div>         		
       <div class="form-buttons">
-        <button type="submit"><?php echo __('Save settings', 'dekaagcrm'); ?></button>
+        <button type="submit"><?php echo __('Instellingen opslaan', 'dekaagcrm'); ?></button>
       </div>
       </fieldset>
       </form>
