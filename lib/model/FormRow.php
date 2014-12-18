@@ -31,7 +31,7 @@ class DeKaagFormRow extends DeKaagBase {
                 if ($age > $validator['0']['value']) $visible = false;
                 break;
               case 'equal':
-                if ($age == $validator['0']['value']) $visible = false;
+                if ($age != $validator['0']['value']) $visible = false;
                 break;
                 
             }
@@ -50,7 +50,7 @@ class DeKaagFormRow extends DeKaagBase {
               if ($date >= strtotime($validator['0']['value'])) $visible = false;
               break;
             case 'equal':
-              if ($date == strtotime($validator['0']['value'])) $visible = false;
+              if ($date != strtotime($validator['0']['value'])) $visible = false;
               break;
               
           }
@@ -74,7 +74,7 @@ class DeKaagFormRow extends DeKaagBase {
                 if ($date >= strtotime($validator['0']['value'])) $visible = false;
                 break;
               case 'equal':
-                if ($date == strtotime($validator['0']['value'])) $visible = false;
+                if ($date != strtotime($validator['0']['value'])) $visible = false;
                 break;
             }
           }
