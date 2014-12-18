@@ -25,7 +25,7 @@ class DeKaagCRM_Login extends WP_Widget {
 	public function widget($args, $instance)
 	{
 	  if (!session_id()) session_start();
-	  wp_enqueue_style('dekaagcrm-frontend', plugins_url('css/frontend.css', __FILE__));
+	  wp_enqueue_style('dekaagcrm-frontend', plugins_url('../css/frontend.css', __FILE__));
 	  echo $args['before_widget'];
 	  if (!empty($instance['redirect_url'])) {
 	    
