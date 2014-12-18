@@ -1,4 +1,4 @@
-<h2><?php echo __('Uw afspraak'); ?></h2>
+<h2><?php echo __('Uw reservering'); ?></h2>
 
 <div id="appointment-info">
   <?php echo $appointmentInfo; ?>

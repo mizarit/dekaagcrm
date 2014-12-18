@@ -1,4 +1,4 @@
-<h2><?php echo __('Uw afspraak'); ?></h2>
+<h2><?php echo __('Uw reservering'); ?></h2>
 
 <div id="appointment-info">
   <?php echo $appointmentInfo; ?>
@@ -9,7 +9,7 @@
 </div>
 
 <h2><?php echo __('Gebruikers registratie'); ?></h2>
-<p><?php echo __('Vul het onderstaande formulier in om uw gebruikersaccount aan te maken. Hierna kunt u uw afspraak met dit gebruikersprofiel bevestigen.'); ?></p>
+<p><?php echo __('Vul het onderstaande formulier in om uw gebruikersaccount aan te maken. Hierna kunt u uw reservering met dit gebruikersprofiel bevestigen.'); ?></p>
 
 <div id="error-container">
   <ul class="form-errors" id="form-errors">

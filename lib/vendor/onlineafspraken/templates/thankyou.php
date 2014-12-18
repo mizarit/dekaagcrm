@@ -1,4 +1,4 @@
-<h2><?php echo __('Uw afspraak'); ?></h2>
+<h2><?php echo __('Uw reservering'); ?></h2>
 <div id="appointment-info">
   <?php echo $appointmentInfo; ?>
 </div>
@@ -39,5 +39,5 @@ Overige betalingvoorwaarden zoals aanbetaling zijn vermeld op de bijgevoegde fac
 
 <!--
 <div class="form-button">
-  <button type="button" onclick="widget.startBooking(true);"><?php echo __('Maak nog een afspraak'); ?></button>
+  <button type="button" onclick="widget.startBooking(true);"><?php echo __('Maak nog een reservering'); ?></button>
 </div>-->
