@@ -109,11 +109,11 @@ $m = 0;
                               <option <?php if(is_numeric($validator['validate'])) echo ' selected="selected"'; ?> value="answer">antwoord op vraag</option>
                             </select>
                             <select <?php if (is_numeric($validator['validate'])) echo ' style="display:none;"'; ?> name="validator-<?php echo $row->id; ?>-<?php echo $k; ?>-validator" id="validator-<?php echo $row->id; ?>-<?php echo $k; ?>-validator">
-                              <option <?php if($val['validator'] == 'in') echo ' selected="selected"'; ?> value="in">in</option>
-                              <option <?php if($val['validator'] == 'notin') echo ' selected="selected"'; ?> value="notin">niet in</option>
-                              <option <?php if($val['validator'] == 'greater') echo ' selected="selected"'; ?> value="greater">groter dan</option>
-                              <option <?php if($val['validator'] == 'smaller') echo ' selected="selected"'; ?> value="smaller">kleiner of gelijk aan</option>
-                              <option <?php if($val['validator'] == 'equal') echo ' selected="selected"'; ?> value="equal">is exact</option>
+                              <option <?php if(!in_array($validator['validate'], array('apptype', 'none'))) echo ' style="display:none;"'; ?> <?php if($val['validator'] == 'in') echo ' selected="selected"'; ?> value="in">in</option>
+                              <option <?php if(!in_array($validator['validate'], array('apptype', 'none'))) echo ' style="display:none;"'; ?> <?php if($val['validator'] == 'notin') echo ' selected="selected"'; ?> value="notin">niet in</option>
+                              <option <?php if(in_array($validator['validate'], array('apptype', 'none'))) echo ' style="display:none;"'; ?> <?php if($val['validator'] == 'greater') echo ' selected="selected"'; ?> value="greater">groter dan</option>
+                              <option <?php if(in_array($validator['validate'], array('apptype', 'none'))) echo ' style="display:none;"'; ?> <?php if($val['validator'] == 'smaller') echo ' selected="selected"'; ?> value="smaller">kleiner of gelijk aan</option>
+                              <option <?php if(in_array($validator['validate'], array('apptype', 'none'))) echo ' style="display:none;"'; ?> <?php if($val['validator'] == 'equal') echo ' selected="selected"'; ?> value="equal">is exact</option>
                             </select>
                           </div>
                           <div id="validator-apptype-<?php echo $row->id; ?>-<?php echo $k; ?>" style="float: left;<?php if (!in_array($validator['validate'], array('apptype', 'none'))) echo 'display: none;'; ?>">
