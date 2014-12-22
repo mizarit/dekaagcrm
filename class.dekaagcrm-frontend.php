@@ -49,7 +49,7 @@ class DeKaagCRM_Frontend {
 	
 	public static function display_page() {
 	  $page = 'page_'.trim($_SERVER['REQUEST_URI'], '/');
-	  if (is_callable(array(self, $page)) && ($page == 'page_reserveren' || self::check_login())) {
+	  if (is_callable(array(self, $page)) && ($page == 'page_reserveren' || $page == 'page_reserverenwas' || self::check_login())) {
 	    wp_enqueue_style('dekaagcrm-frontend', plugins_url('css/frontend.css', __FILE__));
 	    self::$page();
 	  }
@@ -305,6 +305,7 @@ class DeKaagCRM_Frontend {
     wp_enqueue_script('oa-widget-prototype', plugins_url('lib/vendor/onlineafspraken/js/prototype.js', __FILE__));
     wp_enqueue_script('oa-widget-calendarview', plugins_url('lib/vendor/onlineafspraken/js/calendarview.js', __FILE__));
     wp_enqueue_script('oa-widget-widget', plugins_url('lib/vendor/onlineafspraken/js/widget.js', __FILE__));
+    wp_enqueue_style('dekaagcrm-frontend', plugins_url('css/frontend.css', __FILE__));
 
     $_SESSION['company'] = 1;
 	  DeKaagCRM_Frontend::render('book', array(
@@ -318,7 +319,8 @@ class DeKaagCRM_Frontend {
     wp_enqueue_script('oa-widget-prototype', plugins_url('lib/vendor/onlineafspraken/js/prototype.js', __FILE__));
     wp_enqueue_script('oa-widget-calendarview', plugins_url('lib/vendor/onlineafspraken/js/calendarview.js', __FILE__));
     wp_enqueue_script('oa-widget-widget', plugins_url('lib/vendor/onlineafspraken/js/widget.js', __FILE__));
-
+    wp_enqueue_style('dekaagcrm-frontend', plugins_url('css/frontend.css', __FILE__));
+    
     $_SESSION['company'] = 2;
 	  DeKaagCRM_Frontend::render('book', array(
         

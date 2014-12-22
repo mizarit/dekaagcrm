@@ -247,8 +247,8 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
     
     DeKaagInvoice::generate_pdf($filename, $model);
     
-    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
-    $url = $protocol.'://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/dekaagcrm/data/'.$filename;
+    $url = plugins_url('data/'.$filename, __FILE__);
+    
     wp_redirect($url, 302);
     //header('Content-Type: application/pdf');
     //header("Content-Transfer-Encoding: Binary");
@@ -419,11 +419,11 @@ class DeKaagCRMListInvoices extends WP_List_Table {
     function column_title($item){
         //Build row actions
         if ($item['status'] == __('pending', 'dekaagcrm') || $item['status'] == __('credit', 'dekaagcrm')) {
-          if ($item['invoicenr'] == '') {
+          if ($item['title'] == '') {
             $actions['edit'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'edit',$item['ID'], __('Edit', 'dekaagcrm'));
             $actions['delete'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'delete',$item['ID'], __('Delete', 'dekaagcrm'));
           }
-          if ($item['status'] ==  __('credit', 'dekaagcrm') && $item['title'] != '') {
+          if ($item['status'] == __('credit', 'dekaagcrm') && $item['title'] != '') {
             $actions['download'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'download',$item['ID'], __('Download PDF', 'dekaagcrm'));
           }
           
