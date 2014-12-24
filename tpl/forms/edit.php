@@ -129,19 +129,9 @@ $m = 0;
                               echo date('d-m-Y', strtotime($val['value'])); 
                               break;
                             default:
-                              $rows2 = DeKaagFormRow::model()->findAll();
-                              foreach ($rows2 as $id2 => $row2) {
-                                if ($id2 > $id && $row2->rowtype == 'question') { 
-                                  if($row2->fieldtype == 'radio' || $row2->fieldtype == 'select') {
-                                    if($row2->id == $validator['validate']) {
-                                      echo $row2->title;
-                                    }
-                                  }
-                                }
-                              }
-                              echo ' = ';
                               $row2 = DeKaagFormRow::model()->findByPk($validator['validate']);
                               if ($row2) {
+                                echo $row2->title.' = ';
                               foreach (json_decode($row2->answers, true) as $ai => $answer) { 
                                 if ($ai == $validator[0]['value']) {
                                   echo $answer;
