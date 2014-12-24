@@ -576,15 +576,18 @@ class Widget extends WidgetCore
       foreach ($_SESSION['booking']['answers'] as $key => $value) {
         $formrow = DeKaagFormRow::model()->findByPk($key);
         
-        if (!$formrow->isVisible()) continue;
+        //if (!$formrow || !$formrow->isVisible()) continue;
+        if (!$formrow) continue;
         
         $mutations = json_decode($formrow->mutations);
-        $mutation = $mutations[$value];
+        $mutation = $mutations[is_numeric($value) ? $value : 0];
+        
         $v = $mutation->type == 'price' ? $mutation->mutation : ($total / 100) * $mutation->mutation;
         if ($v > 0 && !is_numeric($value) && trim($value) == '') {
           // entered string is empty, do no mutation
           $v = 0;
         }
+        
         if ($formrow->oninvoice != '') {
           $row2 = new DeKaagInvoiceRow;
           $answers = json_decode($formrow->answers);
