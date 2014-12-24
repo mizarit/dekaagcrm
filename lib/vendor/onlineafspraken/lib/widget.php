@@ -384,7 +384,7 @@ class Widget extends WidgetCore
 	 */
   public function executeConfirm()
   {
-    if ($this->hasRequestParameter('persona')) {
+    if ($this->hasRequestParameter('persona') && $this->getRequestParameter('persona') > 0) {
       $_SESSION['dekaag_persona_id'] = $this->getRequestParameter('persona');      
     }
     
@@ -475,6 +475,8 @@ class Widget extends WidgetCore
     else {
 
       $resIds = array();
+      if (!isset($_SESSION['booking']['answers'])) $_SESSION['booking']['answers'] = array();
+      
       foreach ($_SESSION['booking']['answers'] as $key => $value) {
         $formrow = DeKaagFormRow::model()->findByPk($key);
         $mutations = json_decode($formrow->mutations);

@@ -122,7 +122,7 @@ class DeKaagForm extends DeKaagBase {
         } 
       }
       ?>
-<?php if ($form_id == 1) { ?>  
+<?php if ($form_id == 1 || $form_id == 3) { ?>  
 <script type="text/javascript">
 window.formValidate = function()
 {
