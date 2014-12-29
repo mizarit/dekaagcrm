@@ -5,7 +5,8 @@ class DeKaagCRM_Admin_forms {
 	{
     ob_start();
         
-    if (isset($_GET['export'])) {
+    if (isset($_GET['export'])) 
+    {
 	    $formrows = DeKaagFormRow::model()->findAll();
 	    $data = array();
 	    foreach ($formrows as $formrow) {
@@ -24,6 +25,33 @@ class DeKaagCRM_Admin_forms {
 	      );
 	    }
 	    return $data;
+	  }
+	  
+	  if (isset($_GET['import'])) {
+	    echo 'IMPORT';
+	    $fn = DEKAAGCRM__PLUGIN_DIR.'data/import.csv';
+	    $fp = fopen($fn, 'r');
+	    $keys = false;
+	    while ($row = fgetcsv($fp, 2048, ';', '"')) {
+	      if (!$keys) {
+	        $keys = $row;
+	        continue;
+	      }
+	      $formrow = new DeKaagFormRow;
+	      $formrow->{$formrow->prefix().'form_id'} = $row[array_search('form_id', $keys)];
+	      $formrow->title = $row[array_search('title', $keys)];
+	      $formrow->explanation = $row[array_search('explanation', $keys)];
+	      $formrow->oninvoice = $row[array_search('oninvoice', $keys)];
+	      $formrow->answers = $row[array_search('answers', $keys)];
+	      $formrow->mutations = $row[array_search('mutations', $keys)];
+	      $formrow->validators = $row[array_search('validators', $keys)];
+	      $formrow->default = $row[array_search('default', $keys)];
+	      $formrow->rowtype = $row[array_search('rowtype', $keys)];
+	      $formrow->fieldtype = $row[array_search('fieldtype', $keys)];
+	      $formrow->save();
+	    }
+	    fclose($fp);
+	    exit;
 	  }
 	  
     $action = isset($_GET['action']) && $_GET['action'] != -1 ? $_GET['action'] : 'list';

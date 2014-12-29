@@ -203,7 +203,8 @@ class DeKaagBase
       foreach ($this->relations as $key => $value) {
         unset($values[$key]);
       }
-      $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $this->table(), implode(', ', array_keys($values)), "'".implode("', '", array_values($values))."'");
+      $fields = '`'.implode('`, `', array_keys($values)).'`';
+      $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $this->table(), $fields, "'".implode("', '", array_values($values))."'");
       $wpdb->query($sql);
       $this->id = $wpdb->insert_id;
     }
