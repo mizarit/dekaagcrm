@@ -10,8 +10,8 @@
   <tbody>
   <?php foreach ($appointments as $i => $appointment) { 
     $invoice = $appointment->invoice;
-    $hash = crypt($invoice->invoicenr, $invoice->invoicenr.'DEKAAG');
-    
+    //$hash = crypt($invoice->invoicenr, $invoice->invoicenr.'DEKAAG');
+    $hash = substr(md5($invoice->invoicenr.'DEKAAG123456789123456789'),8,16); 
     ?>
     <tr <?php if ($i%2==0) echo ' class="odd"'; ?>>
       <td><?php echo $appointment->persona->title; ?></td>
