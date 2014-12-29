@@ -21,7 +21,7 @@ $vars = array(
 );
 extract($vars);
 ?>
-<p><?php echo __('Uw afspraak is gemaakt. Er is een e-mail bevestiging naar u verzonden met een bijgevoegde factuur.'); ?>
+<p><?php echo __('Uw reservering is gemaakt. Er is een e-mail bevestiging naar u verzonden met een bijgevoegde factuur.'); ?>
 <p>Wij verzoeken u vriendelijk deze factuur voor <?php echo $end_date; ?> te voldoen. 
 <?php if ($downpayment) { ?>
 Overige betalingvoorwaarden zoals aanbetaling zijn vermeld op de bijgevoegde factuur.
