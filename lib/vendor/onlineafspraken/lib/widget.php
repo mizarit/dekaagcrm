@@ -585,9 +585,9 @@ class Widget extends WidgetCore
       //$booking['ResourceId'] = $resId;
       $booking['ResourceId'] = implode(',', $resIds);
       
-      //$response = $this->sendRequest('setAppointment', $booking);
-$this->sendResponse(array('Status' => 'OK'));
-exit;
+      $response = $this->sendRequest('setAppointment', $booking);
+//$this->sendResponse(array('Status' => 'OK'));
+//exit;
       if (isset($response['Appointment'])) {
         $appointment = array_shift($response['Appointment']);
         $_SESSION['booking']['appointment'] = $appointment;
@@ -644,6 +644,9 @@ exit;
     
     $total = $grandtotal = (float)$apptype['Price'];
     
+    //echo $total;
+    //var_dump($_SESSION['booking']['answers']);
+    
     if(isset($_SESSION['booking']['answers'])) {
       foreach ($_SESSION['booking']['answers'] as $key => $value) {
         $formrow = DeKaagFormRow::model()->findByPk($key);
@@ -651,14 +654,19 @@ exit;
         //if (!$formrow || !$formrow->isVisible()) continue;
         if (!$formrow) continue;
         
+        //var_dump('form row'.$formrow->id);
         $mutations = json_decode($formrow->mutations);
         $mutation = $mutations[is_numeric($value) ? $value : 0];
         
+        //var_dump($mutations);
+        //var_dump($mutation);
         $v = $mutation->type == 'price' ? $mutation->mutation : ($total / 100) * $mutation->mutation;
         if ($v > 0 && !is_numeric($value) && trim($value) == '') {
           // entered string is empty, do no mutation
           $v = 0;
         }
+        
+        //var_dump($v);
         
         if ($formrow->oninvoice != '') {
           $row2 = new DeKaagInvoiceRow;

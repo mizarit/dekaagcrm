@@ -19,7 +19,7 @@ $m = 0;
           if ($row->rowtype == 'mutation') $m++;
           ?>
             <div class="postbox " id="row-container-<?php echo $id; ?>" style="margin-bottom:3px;">
-              <h3 class="hndle" style="padding-left:10px;margin: 2px 0;"><span><?php echo $row->rowtype == 'question' ? $row->title : __('Mutation', 'dekaagcrm').' '.$m; ?></span>
+              <h3 class="hndle" style="cursor:default;padding-left:10px;margin: 2px 0;"><span><?php echo $row->rowtype == 'question' ? $row->title : __('Mutation', 'dekaagcrm').' '.$m; ?></span>
               <a href="javascript:if(confirm('Weet je zeker dat je deze vraag of mutatie wilt verwijderen? Je kunt dit niet ongedaan magen. Indien vragen afhankelijk zijn van het antwoord op deze vraag moet je deze vragen corrigeren.')) {jQuery('#saveaction').val('deletequestion_<?php echo $row->id; ?>');jQuery('#editform').submit();}" style="top:5px;right:5px;" class="delete-row"><img src="<?php echo plugins_url('../../img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
               </h3>
               <div class="inside" style="margin-bottom: 0;">
