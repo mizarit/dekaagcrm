@@ -202,9 +202,80 @@ class Widget extends WidgetCore
       if ($dekaag_user) {
         $_SESSION['dekaag_user_id'] = $dekaag_user->id;
         $_SESSION['dekaag_relation_id'] = $dekaag_user->{$dekaag_user->prefix().'relation_id'};
+        echo 'OK';
+        exit;
       }
-      echo 'OK';
-      exit;
+      else {
+        // OA user exists, but no relation, create it
+       /*
+       array(17) {
+  ["Id"]=>
+  string(7) "1401981"
+  ["FirstName"]=>
+  string(7) "Ricardo"
+  ["LastName"]=>
+  string(7) "Matters"
+  ["Insertions"]=>
+  string(0) ""
+  ["BirthDate"]=>
+  string(0) ""
+  ["Gender"]=>
+  string(0) ""
+  ["Street"]=>
+  string(0) ""
+  ["HouseNr"]=>
+  string(0) ""
+  ["HouseNrAddition"]=>
+  string(0) ""
+  ["ZipCode"]=>
+  string(0) ""
+  ["City"]=>
+  string(0) ""
+  ["Country"]=>
+  string(9) "Nederland"
+  ["Phone"]=>
+  string(10) "0623231588"
+  ["MobilePhone"]=>
+  string(10) "0623231588"
+  ["Email"]=>
+  string(25) "ricardo.matters@gmail.com"
+  ["Status"]=>
+  string(1) "1"
+  ["OwnCompany"]=>
+  string(1) "1"
+  */
+        $relation = new DeKaagRelation;
+        $relation->title = $_SESSION['booking']['customer']['FirstName'].' '.$_SESSION['booking']['customer']['Insertions'].' '.$_SESSION['booking']['customer']['LastName'];
+        $relation->first_name = $_SESSION['booking']['customer']['FirstName'];
+        $relation->insertions = $_SESSION['booking']['customer']['Insertions'];
+        $relation->last_name = $_SESSION['booking']['customer']['LastName'];
+        $relation->address = $_SESSION['booking']['customer']['Street'].' '.$_SESSION['booking']['customer']['HouseNr'].' '.$_SESSION['booking']['customer']['HouseNrAddition'];
+        $relation->zipcode = $_SESSION['booking']['customer']['ZipCode'];
+        $relation->city = $_SESSION['booking']['customer']['City'];
+        $relation->phone = $_SESSION['booking']['customer']['Phone'];
+        $relation->phone_mobile = $_SESSION['booking']['customer']['MobilePhone'];
+        $relation->email = $_SESSION['booking']['customer']['Email'];
+        $relation->save();
+        $user = new DeKaagUser;
+        $user->{$relation->prefix().'relation_id'} = $relation->id;
+        $user->username = $this->getRequestParameter('username');
+        $salt = '';
+        for($i=0; $i<22; $i++){
+            $r = rand(0,$charCount-1);
+            $salt .= $chars[$r];
+        }
+        $salt = '$5$'.$salt.'$';
+        $password = crypt($this->getRequestParameter('password'), $salt);
+        $user->password = $password;
+        $user->salt = $salt;
+        $user->role = 1;
+        $user->save();
+        
+        $_SESSION['dekaag_user_id'] = $user->id;
+        $_SESSION['dekaag_relation_id'] = $relation->id;
+        echo 'OK';
+        exit;
+      }
     }
     else {
       $dekaag_user = DeKaagUser::model()->findByAttributes(new DeKaagCriteria(array('username' => $this->getRequestParameter('username'))));
@@ -514,8 +585,9 @@ class Widget extends WidgetCore
       //$booking['ResourceId'] = $resId;
       $booking['ResourceId'] = implode(',', $resIds);
       
-      $response = $this->sendRequest('setAppointment', $booking);
-
+      //$response = $this->sendRequest('setAppointment', $booking);
+$this->sendResponse(array('Status' => 'OK'));
+exit;
       if (isset($response['Appointment'])) {
         $appointment = array_shift($response['Appointment']);
         $_SESSION['booking']['appointment'] = $appointment;
