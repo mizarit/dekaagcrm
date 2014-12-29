@@ -293,6 +293,8 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
           'date' => date('d-m-Y', strtotime($model->date)),
           'total' => $model->getTotalStr(),
           'total_remaining' => $model->status != 5 ? $model->getTotalRemainingStr() : '',
+          'total_val' => $model->getTotalStr(false),
+          'total_remaining_val' => $model->getTotalRemainingStr(false),
           'enddate' => $model->status != 5 ? date('d-m-Y', strtotime($model->enddate)) : '',
           'status' => $model->getStatusStr(),
           'company' => $model->getCompanyStr(),
