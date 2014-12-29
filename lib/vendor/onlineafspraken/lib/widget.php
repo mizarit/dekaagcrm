@@ -557,7 +557,7 @@ class Widget extends WidgetCore
     $model = new DeKaagInvoice;
     $model->company = $_SESSION['company'];
     $model->date = date('Y-m-d');
-    $model->enddate = date('Y-m-d', strtotime('+1 weeks')); // 1 maand voor aanvang reis
+    $model->enddate = date('Y-m-d', max(array(time(), strtotime('-1 month', strtotime($_SESSION['booking']['date']))))); // 1 maand voor aanvang reis
     $model->dpdate = date('Y-m-d', strtotime('+2 weeks'));
     $model->address = $relation->address."\n".$relation->zipcode.' '.$relation->city;
     $model->{$model->prefix().'relation_id'} = $relation->id; 
@@ -788,6 +788,18 @@ class Widget extends WidgetCore
 
       if ($this->getRequestParameter('LastName') == '') {
         $errors[] = array('Field' => 'LastName', 'Error' => __('Achternaam is een verplicht veld'));
+      }
+      
+      if ($this->getRequestParameter('Street') == '') {
+        $errors[] = array('Field' => 'Street', 'Error' => __('Adres is een verplicht veld'));
+      }
+      
+      if ($this->getRequestParameter('ZipCode') == '') {
+        $errors[] = array('Field' => 'ZipCode', 'Error' => __('Postcode is een verplicht veld'));
+      }
+      
+      if ($this->getRequestParameter('City') == '') {
+        $errors[] = array('Field' => 'City', 'Error' => __('Plaats is een verplicht veld'));
       }
 
       if ($this->getRequestParameter('Email') == '') {
