@@ -29,6 +29,10 @@ class DeKaagCRM_Admin_forms {
 	  
 	  if (isset($_GET['import'])) {
 	    echo 'IMPORT';
+	    global $wpdb;
+	    $tmp = new DeKaagFormRow;
+	    $wpdb->query('DELETE FROM '.$tmp->table());
+	    
 	    $fn = DEKAAGCRM__PLUGIN_DIR.'data/import.csv';
 	    $fp = fopen($fn, 'r');
 	    $keys = false;
@@ -38,6 +42,7 @@ class DeKaagCRM_Admin_forms {
 	        continue;
 	      }
 	      $formrow = new DeKaagFormRow;
+	      $formrow->id = $row[array_search('id', $keys)];
 	      $formrow->{$formrow->prefix().'form_id'} = $row[array_search('form_id', $keys)];
 	      $formrow->title = $row[array_search('title', $keys)];
 	      $formrow->explanation = $row[array_search('explanation', $keys)];
@@ -48,7 +53,7 @@ class DeKaagCRM_Admin_forms {
 	      $formrow->default = $row[array_search('default', $keys)];
 	      $formrow->rowtype = $row[array_search('rowtype', $keys)];
 	      $formrow->fieldtype = $row[array_search('fieldtype', $keys)];
-	      $formrow->save();
+	      $formrow->save(true);
 	    }
 	    fclose($fp);
 	    exit;

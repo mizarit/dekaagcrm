@@ -11,7 +11,7 @@ class DeKaagBase
     return $wpdb->prefix.'dekaagcrm_';
   }
   
-  protected function table()
+  public function table()
   { 
     return $this->prefix().$this->model;
   }
@@ -172,12 +172,12 @@ class DeKaagBase
     
   }
   
-  public function save()
+  public function save($forceNew = false)
   {
     global $wpdb;
     $values = $this->values;
     
-    if (isset($values['id'])) {
+    if (isset($values['id']) && $forceNew === false) {
       $id = $values['id'];
       unset($values['id']);
       $fields = array();
@@ -205,6 +205,7 @@ class DeKaagBase
       }
       $fields = '`'.implode('`, `', array_keys($values)).'`';
       $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $this->table(), $fields, "'".implode("', '", array_values($values))."'");
+      //echo $sql;
       $wpdb->query($sql);
       $this->id = $wpdb->insert_id;
     }
