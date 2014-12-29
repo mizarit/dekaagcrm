@@ -43,15 +43,15 @@
         <input type="text" value="<?php echo $object->phone_extra; ?>" id="phone_extra" name="phone_extra" style="width:150px;">
       </div>
       <div class="form-row">
-        <div class="form-label"><label for="address"><?php echo __('Address', 'dekaagcrm'); ?></label></div>
+        <div class="form-label"><label for="address"><?php echo __('Address', 'dekaagcrm'); ?> <span class="description">(verplicht)</span></label></div>
         <input type="text" value="<?php echo $object->address; ?>" id="address" name="address">
       </div>  	
       <div class="form-row">
-        <div class="form-label"><label for="zipcode"><?php echo __('Zipcode', 'dekaagcrm'); ?></label></div>
+        <div class="form-label"><label for="zipcode"><?php echo __('Zipcode', 'dekaagcrm'); ?> <span class="description">(verplicht)</span></label></div>
         <input type="text" value="<?php echo $object->zipcode; ?>" id="zipcode" name="zipcode" style="width:80px;"><span class="description">1234AA</span>
       </div>  	
       <div class="form-row">
-        <div class="form-label"><label for="city"><?php echo __('City', 'dekaagcrm'); ?></label></div>
+        <div class="form-label"><label for="city"><?php echo __('City', 'dekaagcrm'); ?> <span class="description">(verplicht)</span></label></div>
         <input type="text" value="<?php echo $object->city; ?>" id="city" name="city">
       </div>
       

@@ -198,6 +198,16 @@ class DeKaagCRM_Frontend {
 	      $errors['email'] = __('Email is invalid', 'dekaagcrm');
 	    }
 	    
+	    if (!DeKaagCRM_Frontend::validate($_POST['address'], 'required')) {
+	      $errors['address'] = __('Adres is een verplicht veld', 'dekaagcrm');
+	    }
+	    if (!DeKaagCRM_Frontend::validate($_POST['zipcode'], 'required')) {
+	      $errors['zipcode'] = __('Postcode is een verplicht veld', 'dekaagcrm');
+	    }
+	    if (!DeKaagCRM_Frontend::validate($_POST['city'], 'required')) {
+	      $errors['city'] = __('Plaats is een verplicht veld', 'dekaagcrm');
+	    }
+	    
 	    if ($_POST['zipcode'] != '') {
 	      if (!DeKaagCRM_Frontend::validate($_POST['zipcode'], 'zipcode')) {
   	      $errors['zipcode'] = __('Zipcode is invalid', 'dekaagcrm');

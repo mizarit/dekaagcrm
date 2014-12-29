@@ -39,17 +39,17 @@
     </div>
 
     <div class="form-row">
-      <div class="form-label"><label for="Street"><?php echo __('Adres'); ?></label></div>
+      <div class="form-label"><label for="Street"><?php echo __('Adres'); ?> *</label></div>
       <input type="text" name="Street" id="Street">
     </div>
 
     <div class="form-row">
-      <div class="form-label"><label for="ZipCode"><?php echo __('Postcode'); ?></label></div>
+      <div class="form-label"><label for="ZipCode"><?php echo __('Postcode'); ?> *</label></div>
       <input type="text" name="ZipCode" id="ZipCode" style="width:90px !important;">
     </div>
 
     <div class="form-row">
-      <div class="form-label"><label for="City"><?php echo __('Plaats'); ?></label></div>
+      <div class="form-label"><label for="City"><?php echo __('Plaats'); ?> *</label></div>
       <input type="text" name="City" id="City">
     </div>
 
