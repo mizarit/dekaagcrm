@@ -309,6 +309,22 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
           'phone_mobile' => $model->relation->phone_mobile,
           'phone_extra' => $model->relation->phone_extra
         );
+        
+        $appointment = DeKaagAppointment::model()->findByAttributes(new DeKaagCriteria(array($model->prefix().'invoice_id' => $model->id)));
+        
+        if ($appointment) {
+          $info = json_decode($appointment->info, true);
+          $cells = array_keys($info);
+          $apptype = $cells[0];
+          $data[$model->id]['apptype_id'] = $appointment->apptype_id;
+          $data[$model->id]['apptype'] = $apptype;
+          $data[$model->id]['appdate'] = date('d-m-Y', strtotime($appointment->date));
+        }
+        else {
+          $data[$model->id]['apptype_id'] = 'missing appointment';
+          $data[$model->id]['apptype'] = 'missing appointment';
+          $data[$model->id]['appdate'] = 'missing appointment';
+        }
         if ($model->persona) {
           $data[$model->id]['persona'] = $model->persona->title;
           $data[$model->id]['persona_first_name'] = $model->persona->first_name;
@@ -335,7 +351,7 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
           $data[$model->id]['persona_diplomas'] = '';
         }
         
-        $appointment = DeKaagAppointment::model()->findByAttributes(new DeKaagCriteria(array($model->prefix().'invoice_id' => $model->id)));
+        
         if ($appointment) {
           $info = json_decode($appointment->info, true);
           $cells = array_keys($info);
