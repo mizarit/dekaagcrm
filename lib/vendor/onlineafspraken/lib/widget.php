@@ -654,19 +654,19 @@ class Widget extends WidgetCore
         //if (!$formrow || !$formrow->isVisible()) continue;
         if (!$formrow) continue;
         
-        //var_dump('form row'.$formrow->id);
+       // var_dump('form row'.$formrow->id);
         $mutations = json_decode($formrow->mutations);
         $mutation = $mutations[is_numeric($value) ? $value : 0];
         
-        //var_dump($mutations);
-        //var_dump($mutation);
+      //var_dump($mutations);
+      //var_dump($mutation);
         $v = $mutation->type == 'price' ? $mutation->mutation : ($total / 100) * $mutation->mutation;
         if ($v > 0 && !is_numeric($value) && trim($value) == '') {
           // entered string is empty, do no mutation
           $v = 0;
         }
         
-        //var_dump($v);
+       // var_dump($v);
         
         if ($formrow->oninvoice != '') {
           $row2 = new DeKaagInvoiceRow;
@@ -727,6 +727,9 @@ class Widget extends WidgetCore
     $appointment->date  = $_SESSION['booking']['date'];
     $appointment->created_at = date('Y-m-d H:i:s');
     $appointment->apptype_id = $_SESSION['booking']['apptypeId'];
+    
+    $info['appId'] = $_SESSION['booking']['appointment']['Id'];
+   
     $appointment->info = json_encode($info);
     $appointment->company = $_SESSION['company'];
     $appointment->save();
