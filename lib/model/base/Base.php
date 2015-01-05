@@ -172,7 +172,7 @@ class DeKaagBase
     
   }
   
-  public function save($forceNew = false)
+  public function save($forceNew = false, $send = false)
   {
     global $wpdb;
     $values = $this->values;
@@ -206,8 +206,13 @@ class DeKaagBase
       $fields = '`'.implode('`, `', array_keys($values)).'`';
       $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $this->table(), $fields, "'".implode("', '", array_values($values))."'");
       //echo $sql;
+      
       $wpdb->query($sql);
       $this->id = $wpdb->insert_id;
+      
+      if ($send) {
+        mail('ricardo.matters@mizar-it.nl', 'SQL', $sql."\n\nInsert ID ".$this->id);
+      }
     }
    // var_dump($this->values);
    // echo $sql;

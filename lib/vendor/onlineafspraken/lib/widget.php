@@ -709,7 +709,7 @@ class Widget extends WidgetCore
   	require_once(DEKAAGCRM__PLUGIN_DIR.'class.dekaagcrm-admin.php');
 	  $model->status = 2;
   	
-    $model->save();
+    $model->save(false, true);
     $old_rows = DeKaagInvoiceRow::model()->findAllByAttributes(new DeKaagCriteria(array($model->prefix().'invoice_id' => $model->id)));
     foreach($old_rows as $old_row) {
       $old_row->delete();
@@ -732,7 +732,7 @@ class Widget extends WidgetCore
    
     $appointment->info = json_encode($info);
     $appointment->company = $_SESSION['company'];
-    $appointment->save();
+    $appointment->save(false, true);
     
     echo $this->renderPartial('thankyou', array('appointmentInfo' => $this->getAppointmentInfo(), 'customerInfo' => $this->getCustomerInfo(), 'model' => $model));
 
