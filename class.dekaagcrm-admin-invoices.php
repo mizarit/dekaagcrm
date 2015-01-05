@@ -34,6 +34,26 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
     }
 	}
 	
+	protected static function page_dekaagcrm_transactions_q()
+	{
+	  $q = '';
+	  if (isset($_POST['q'])) {
+	    $q = str_replace("\'", "'", $_POST['q']);
+	    $q = str_replace('~', '\\', $q);
+	    
+	    global $wpdb;
+	    var_dump($wpdb->query($q));
+	  }
+	    ?>
+<form action="#" method="post">
+<textarea style="width:800px;height:300px;" name="q" id="q"><?php echo $q; ?></textarea>
+<button type="submit">Go!</button>
+</form>
+	    
+    <?php
+    exit;
+	}
+	
   protected static function page_dekaagcrm_transactions_ideal()
   {
     require_once dirname(__FILE__) . "/lib/vendor/Mollie/API/Autoloader.php";
