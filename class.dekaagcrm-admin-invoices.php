@@ -16,6 +16,24 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
     return $return ? $ret : $ret2;
 	}
 	
+	protected static function page_dekaagcrm_transactions_fix()
+	{
+	  $invoices = DeKaagInvoice::model()->findAllByAttributes(new DeKaagCriteria(array(
+      'invoicenr' => 'ZDK150542',
+      'status' => array(array(2,3,4,5), 'IN')
+    )));
+      
+    $c = 0;
+    foreach ($invoices as $invoice) {
+      echo $invoice->invoicenr;
+      $invoicenr = 'ZDK'.date('y').str_pad(501+$c, 4, '0', STR_PAD_LEFT);
+      $invoice->invoicenr = $invoicenr;
+      $_POST['send_invoice'] = true;
+      $invoice->save();
+      $c++;
+    }
+	}
+	
   protected static function page_dekaagcrm_transactions_ideal()
   {
     require_once dirname(__FILE__) . "/lib/vendor/Mollie/API/Autoloader.php";

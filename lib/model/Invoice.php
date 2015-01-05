@@ -74,7 +74,7 @@ class DeKaagInvoice extends DeKaagBase {
     
     if ($this->invoicenr == '' && isset($_POST['send_invoice'])) {
       $total = DeKaagInvoice::model()->count(new DeKaagCriteria(array(
-        'date' => array('2014%', 'LIKE'),
+        'date' => array(date('Y').'%', 'LIKE'),
         'status' => array(array(2,3,4,5), 'IN')
       )));
       $invoicenr = 'ZDK'.date('y').str_pad(501+$total, 4, '0', STR_PAD_LEFT);
