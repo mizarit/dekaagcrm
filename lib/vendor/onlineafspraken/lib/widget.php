@@ -703,7 +703,7 @@ class Widget extends WidgetCore
    
     foreach ($rows as $row) {
       $row->{$row->prefix().'invoice_id'} = $model->id;
-      $row->save();
+      $row->save(false, true);
     }
     
     $appointment = new DeKaagAppointment;
