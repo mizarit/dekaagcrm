@@ -176,7 +176,9 @@ class DeKaagBase
   {
     global $wpdb;
     $values = $this->values;
-    
+    foreach ($values as $k => $v) {
+      $values[$k] = addslashes($v);
+    }
     if (isset($values['id']) && $forceNew === false) {
       $id = $values['id'];
       unset($values['id']);
