@@ -295,6 +295,17 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
     //exit;
 	}
 	
+	protected static function page_dekaagcrm_transactions_send()
+	{
+	  $model = DeKaagInvoice::model()->findByPk($_GET['invoice']);
+	  if (!$model) die('Unknown invoice');
+	  
+    $_POST['send_invoice'] = true;
+    $model->save();
+    echo "<script type=\"text/javascript\">window.location.href='/wp-admin/admin.php?page=dekaagcrm_transactions';</script>";
+    exit;
+	}
+	
 	protected static function page_dekaagcrm_transactions_list($return = false)
 	{
 	  if (isset($_GET['s'])) {
@@ -493,6 +504,7 @@ class DeKaagCRMListInvoices extends WP_List_Table {
           if ($item['total_remaining_val'] < $item['total_val']) {
             $actions['view'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'view',$item['ID'], __('View payments', 'dekaagcrm'));
           }
+          $actions['send'] = sprintf('<a href="javascript:if(confirm(\'Opnieuw versturen?\'))window.location.href=\'?page=%s&action=%s&invoice=%s\';">%s</a>',$_REQUEST['page'],'send',$item['ID'], __('Verstuur PDF', 'dekaagcrm'));
           $actions['download'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'download',$item['ID'], __('Download PDF', 'dekaagcrm'));
           //$actions['delete'] = sprintf('<a href="?page=%s&action=%s&invoice=%s">%s</a>',$_REQUEST['page'],'delete',$item['ID'], __('Delete', 'dekaagcrm'));
         }
