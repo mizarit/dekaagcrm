@@ -69,7 +69,7 @@ class DeKaagInvoice extends DeKaagBase {
     return $formatted ? '€ '.number_format($total,2,',','.') : $total;
   }
   
-  public function save()
+  public function save($forceNew = false, $send = false)
   {
     
     if ($this->invoicenr == '' && isset($_POST['send_invoice'])) {
@@ -88,7 +88,7 @@ class DeKaagInvoice extends DeKaagBase {
       $this->status = 1;// set it to pending by default'
     } 
     
-    parent::save();
+    parent::save($forceNew, $send);
     
     if (isset($_POST['send_invoice'])) {
       $options = get_option('dekaagcrm_plugin_options');
