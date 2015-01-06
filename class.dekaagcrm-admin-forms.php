@@ -4,7 +4,7 @@ class DeKaagCRM_Admin_forms {
   protected static function page_dekaagcrm_forms()
 	{
     ob_start();
-        
+   
     if (isset($_GET['export'])) 
     {
 	    $formrows = DeKaagFormRow::model()->findAll();
@@ -69,6 +69,25 @@ class DeKaagCRM_Admin_forms {
 	  
     return ob_get_clean();
 	} 
+	
+	protected static function page_dekaagcrm_forms_sort()
+	{
+	  parse_str($_POST['sort'], $order);
+	  
+	  $object = DeKaagForm::model()->findByPk($_GET['form']);
+	  $rows = $object->rows;
+	  
+	  foreach ($order['row'] as $position => $row_id) {
+  	  foreach ($rows as $row) {
+  	    if($row->id == $row_id) {
+  	      $row->position = $position;
+  	      $row->save();
+  	    }
+  	  }
+	  }
+	  echo 'OK';
+	  exit;
+	}
 	
 	protected static function page_dekaagcrm_forms_list()
 	{

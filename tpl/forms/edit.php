@@ -11,6 +11,8 @@
           	</tr>
           </tbody>
         </table>
+        <ul id="sortable">
+        
 <?php
 $validatorcount = $answercount = array();
 $m = 0;
@@ -18,8 +20,9 @@ $m = 0;
         <?php foreach ($rows as $id => $row) { 
           if ($row->rowtype == 'mutation') $m++;
           ?>
+          <li id="row_<?php echo $row->id; ?>">
             <div class="postbox " id="row-container-<?php echo $id; ?>" style="margin-bottom:3px;">
-              <h3 class="hndle" style="cursor:default;padding-left:10px;margin: 2px 0;"><span><?php echo $row->rowtype == 'question' ? $row->title : __('Mutation', 'dekaagcrm').' '.$m; ?></span>
+              <h3 class="hndle" style="cursor:ns-resize;padding-left:10px;margin: 2px 0;"><span><?php echo $row->rowtype == 'question' ? $row->title : __('Mutation', 'dekaagcrm').' '.$m; ?></span>
               <a href="javascript:if(confirm('Weet je zeker dat je deze vraag of mutatie wilt verwijderen? Je kunt dit niet ongedaan magen. Indien vragen afhankelijk zijn van het antwoord op deze vraag moet je deze vragen corrigeren.')) {jQuery('#saveaction').val('deletequestion_<?php echo $row->id; ?>');jQuery('#editform').submit();}" style="top:5px;right:5px;" class="delete-row"><img src="<?php echo plugins_url('../../img/delete.png', __FILE__); ?>" alt="<?php echo __('Delete', 'dekaagcrm'); ?>"></a>
               </h3>
               <div class="inside" style="margin-bottom: 0;">
@@ -213,7 +216,10 @@ $m = 0;
                 </div>
           		</div>
             </div>
+            </li>
+        
         <?php } ?>
+        </ul>
         
         <button type="button" onclick="jQuery('#saveaction').val('addquestion');jQuery('#editform').submit();" class="button button-secondary">vraag toevoegen</button>
         <button type="button" onclick="jQuery('#saveaction').val('addmutation');jQuery('#editform').submit();" class="button button-secondary">mutatie toevoegen</button>
@@ -221,3 +227,28 @@ $m = 0;
         <p class="submit"><input type="submit" value="<?php echo $create ? __('Create relation', 'dekaagcrm') : __('Save changes', 'dekaagcrm'); ?>" class="button button-primary" id="createusersub" name="createuser"></p>
       </form>
   </div>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript">
+jQuery(function() {
+  jQuery("#sortable").sortable({
+    update: function( event, ui ) {
+      var sorted = jQuery("#sortable").sortable("serialize", { key: "row[]" } );
+      jQuery.ajax({
+       url: '/wp-admin/admin.php?page=dekaagcrm_forms&action=sort&form=<?php echo $_GET['form']; ?>',
+       type: 'POST',
+       data: { sort: sorted },
+       success: function()
+       {
+         alert('Volgorde is aangepast!');
+       }}
+      );
+    }
+  });
+  jQuery("#sortable").disableSelection();
+});
+
+ 	
+
+
+</script>

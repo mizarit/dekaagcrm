@@ -12,6 +12,24 @@ class DeKaagForm extends DeKaagBase {
     return new DeKaagForm;
   }
   
+  public function __get($key)
+  {
+    if (isset($this->values[$key])) {
+      return $this->values[$key];
+    }
+    
+    $ret = parent::__get($key);
+    if ($key == 'rows') {
+      foreach ($ret as $k => $v) {
+        $tmp[$v->position] = $v;
+      }
+      ksort($tmp);
+      $ret = $tmp;
+      $this->values[$key] = $ret;
+    }
+    return $ret;
+  }
+  
   public static function render($form_id, $vars = array())
   {
     extract($vars);

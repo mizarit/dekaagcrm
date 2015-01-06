@@ -46,7 +46,7 @@ class DeKaagCRM_Admin extends DeKaagCRM_Admin_consumers {
 	
 	public static function admin_init() {
 
-    if (isset($_GET['action']) && in_array($_GET['action'], array('download', 'suggest'))) {
+    if (isset($_GET['action']) && in_array($_GET['action'], array('download', 'suggest', 'sort'))) {
       self::display_page();
       exit;
     }
