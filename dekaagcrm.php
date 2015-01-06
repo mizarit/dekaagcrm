@@ -6,7 +6,7 @@
 Plugin Name: De Kaag CRM
 Plugin URI: http://onlineafspraken.nl
 Description: Maatwerk CRM plugin voor De Kaag Zeilschool
-Version: 1.2.14
+Version: 1.2.15
 Author: OnlineAfspraken.nl
 Author URI: http://onlineafspraken.nl
 License: GPLv2 or later
@@ -21,7 +21,7 @@ if ( !function_exists( 'add_action' ) ) {
 
 if (!session_id()) session_start();
 
-define( 'DEKAAGCRM_VERSION', '1.2.14' );
+define( 'DEKAAGCRM_VERSION', '1.2.15' );
 define( 'DEKAAGCRM__MINIMUM_WP_VERSION', '3.1' );
 define( 'DEKAAGCRM__PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'DEKAAGCRM__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

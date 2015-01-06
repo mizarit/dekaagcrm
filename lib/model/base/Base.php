@@ -177,8 +177,12 @@ class DeKaagBase
     global $wpdb;
     $values = $this->values;
     foreach ($values as $k => $v) {
-      $values[$k] = addslashes($v);
+      $x = json_decode($v);
+      if (!$x) {
+        $values[$k] = addslashes($v);
+      }
     }
+    //echo '<pre>';
     if (isset($values['id']) && $forceNew === false) {
       $id = $values['id'];
       unset($values['id']);
@@ -199,6 +203,8 @@ class DeKaagBase
         //}
       } 
       $sql = sprintf('UPDATE %s SET %s WHERE id = %s', $this->table(), implode(', ', $fields), $id);
+      //echo $sql."\n";
+      //var_dump($wpdb->query($sql));
       $wpdb->query($sql);
     }
     else {
