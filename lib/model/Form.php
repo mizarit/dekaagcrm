@@ -11,7 +11,7 @@ class DeKaagForm extends DeKaagBase {
   {
     return new DeKaagForm;
   }
-  /*
+  
   public function __get($key)
   {
     if (isset($this->values[$key])) {
@@ -20,15 +20,22 @@ class DeKaagForm extends DeKaagBase {
     
     $ret = parent::__get($key);
     if ($key == 'rows') {
+      $c = 0;
       foreach ($ret as $k => $v) {
-        $tmp[$v->position] = $v;
+        if (!isset($tmp[$v->position])) {
+          $tmp[$v->position] = $v;
+        }
+        else {
+          $c++;
+          $tmp[$c] = $v;
+        }
       }
       ksort($tmp);
       $ret = $tmp;
       $this->values[$key] = $ret;
     }
     return $ret;
-  }*/
+  }
   
   public static function render($form_id, $vars = array())
   {
