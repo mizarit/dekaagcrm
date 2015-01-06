@@ -11,7 +11,7 @@ class DeKaagForm extends DeKaagBase {
   {
     return new DeKaagForm;
   }
-  
+  /*
   public function __get($key)
   {
     if (isset($this->values[$key])) {
@@ -28,7 +28,7 @@ class DeKaagForm extends DeKaagBase {
       $this->values[$key] = $ret;
     }
     return $ret;
-  }
+  }*/
   
   public static function render($form_id, $vars = array())
   {

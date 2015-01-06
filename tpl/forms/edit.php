@@ -227,6 +227,7 @@ $m = 0;
         <p class="submit"><input type="submit" value="<?php echo $create ? __('Create relation', 'dekaagcrm') : __('Save changes', 'dekaagcrm'); ?>" class="button button-primary" id="createusersub" name="createuser"></p>
       </form>
   </div>
+  <!--
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script type="text/javascript">
@@ -247,8 +248,5 @@ jQuery(function() {
   });
   jQuery("#sortable").disableSelection();
 });
-
- 	
-
-
 </script>
+-->
