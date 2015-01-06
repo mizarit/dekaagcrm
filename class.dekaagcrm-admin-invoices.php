@@ -315,8 +315,28 @@ class DeKaagCRM_Admin_invoices extends DeKaagCRM_Admin_forms {
 	      $date = date('Y-m-d', strtotime($date));
 	    }
 	    
+	    $relation_ids = $persona_ids = array();
+	    
+	    $relations = DeKaagRelation::model()->findAllByAttributes(new DeKaagCriteria(
+	      "title LIKE '%%%s%%' OR email LIKE '%%%s%%' OR phone LIKE '%%%s%%'", array($s, $s, $s)
+	    ));
+	    foreach ($relations as $relation) {
+	      $relation_ids[] = $relation->id;
+	    }
+	    
+	    $personas = DeKaagPersona::model()->findAllByAttributes(new DeKaagCriteria(
+	      "title LIKE '%%%s%%' OR email LIKE '%%%s%%'", array($s, $s)
+	    ));
+	    foreach ($personas as $persona) {
+	      $persona_ids[] = $persona->id;
+	    }
+	    
+	    $model = new DeKaagInvoice();
+	    $s1 = count($relation_ids) > 0 ?  " OR {$model->prefix()}relation_id IN (".implode(',', $relation_ids).")" : '';
+	    $s2 = count($persona_ids) > 0 ?  " OR {$model->prefix()}persona_id IN (".implode(',', $persona_ids).")" : '';
+	    
 	    $models = DeKaagInvoice::model()->findAllByAttributes(new DeKaagCriteria(
-	      "invoicenr LIKE '%%%s%%' OR address LIKE '%%%s%%' OR date LIKE '%%%s%%' OR enddate LIKE '%%%s%%'", array($s, $s, $date, $date)
+	      "invoicenr LIKE '%%%s%%' OR address LIKE '%%%s%%' OR date LIKE '%%%s%%' OR enddate LIKE '%%%s%%' %s %s", array($s, $s, $date, $date, $s1, $s2)
 	    ));
 	   
 	  }
@@ -662,7 +682,7 @@ class DeKaagCRMListInvoices extends WP_List_Table {
      * @uses $this->set_pagination_args()
      **************************************************************************/
     function prepare_items() {
-        $per_page = 5;
+        $per_page = 10;
        
         $columns = $this->get_columns();
         $hidden = array();

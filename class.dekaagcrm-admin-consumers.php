@@ -462,7 +462,7 @@ class DeKaagCRMListConsumers extends WP_List_Table {
     }
 
     function prepare_items() {
-        $per_page = 5;
+        $per_page = 10;
        
         $columns = $this->get_columns();
         $hidden = array();
@@ -494,8 +494,8 @@ class DeKaagCRMListConsumers extends WP_List_Table {
          * sorting technique would be unnecessary.
          */
         function usort_reorder($a,$b){
-            $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'title'; //If no sort, default to title
-            $order = (!empty($_REQUEST['order'])) ? $_REQUEST['order'] : 'asc'; //If no order, default to asc
+            $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'ID'; //If no sort, default to title
+            $order = (!empty($_REQUEST['order'])) ? $_REQUEST['order'] : 'desc'; //If no order, default to asc
             $result = strcmp($a[$orderby], $b[$orderby]); //Determine sort order
             return ($order==='asc') ? $result : -$result; //Send final sort direction to usort
         }
