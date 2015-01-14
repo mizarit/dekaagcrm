@@ -29,14 +29,15 @@ class DeKaagFormRow extends DeKaagBase {
             $age = date_diff(date_create(date('Y-m-d', $dob)), date_create('today'))->y;
             switch ($validator['0']['validator']) {
               case 'greater':
-                if ($hadBD) {
+                // hasBD does not matter, if the person is older than age before his bd, he also is after his bd
+                //if ($hadBD) {
                   if ($age <= $validator['0']['value']) $visible = false;
-                }
-                else {
+                //}
+                //else {
                   // persona hasnt had bd yet, to lower the age for this check
-                  $age--;
-                  if ($age <= $validator['0']['value']) $visible = false;
-                }
+                //  $age--;
+                //  if ($age <= $validator['0']['value']) $visible = false;
+                //}
                 break;
               case 'smaller':
                 if ($hadBD) {
