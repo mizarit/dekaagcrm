@@ -1,6 +1,13 @@
 	<div class="wrap">
     <div id="icon-users" class="icon32"><br/></div>
       <h2><?php echo $title; ?></h2>
+      <?php if (count($errors)>0) { ?>
+      <div class="error">
+      <?php foreach ($errors as $error) { ?>
+      <p><?php echo $error; ?></p>
+      <?php } ?>
+      </div>
+      <?php } ?>
       <form novalidate="novalidate" class="validate" id="createuser" name="createuser" method="post" action="">
         <table class="form-table">
         	<tbody>

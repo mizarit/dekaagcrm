@@ -126,6 +126,9 @@ class DeKaagCRM_Admin_consumers extends DeKaagCRM_Admin_invoices {
     	    else if (!DeKaagCRM_Admin::validate($_POST['user_login'], 'login', array('relation' => $object))) {
     	      $errors['user_login'] = __('The username is already taken', 'dekaagcrm');
     	    }
+    	    else if (strstr($_POST['user_login'], ' ')) {
+    	      $errors['user_login'] = __('Gebruikersnaam mag geen spaties bevatten', 'dekaagcrm');
+    	    }
   	    }
 	      
         $user->username = $_POST['user_login'];
@@ -248,7 +251,7 @@ class DeKaagCRM_Admin_consumers extends DeKaagCRM_Admin_invoices {
   	      exit;
 	      }
 	      else {
-	        var_dump($errors);
+	        //var_dump($errors);
 	      }
 	    }
 	   DeKaagCRM_Admin::render('edit', array(

@@ -235,6 +235,9 @@ class DeKaagCRM_Frontend {
   	    else if (!DeKaagCRM_Frontend::validate($_POST['user_login'], 'login', array('relation' => $relation))) {
   	      $errors['user_login'] = __('The username is already taken', 'dekaagcrm');
   	    }
+  	    else if (strstr($_POST['user_login'], ' ')) {
+  	      $errors['user_login'] = __('Gebruikersnaam mag geen spaties bevatten', 'dekaagcrm');
+  	    }
 	    }
 	    
 	    $relation->first_name = $_POST['first_name'];

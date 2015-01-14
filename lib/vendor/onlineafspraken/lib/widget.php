@@ -850,6 +850,9 @@ class Widget extends WidgetCore
       if ($this->getRequestParameter('Username') == '') {
         $errors[] = array('Field' => 'Username', 'Error' => __('Gebruikersnaam is een verplicht veld'));
       }
+      else if (strstr($this->getRequestParameter('Username'), ' ')) {
+        $errors[] = array('Field' => 'Username', 'Error' => __('Gebruikersnaam mag geen spaties bevatten'));
+      }
 
       if ($this->getRequestParameter('FirstName') == '') {
         $errors[] = array('Field' => 'FirstName', 'Error' => __('Voornaam is een verplicht veld'));
