@@ -21,17 +21,44 @@ class DeKaagFormRow extends DeKaagBase {
           if (isset($_SESSION['booking']['dob']) && $_SESSION['booking']['dob'] != '') {
             list($d,$m,$y) = explode('-', $_SESSION['booking']['dob']);
             $dob = @mktime(0,0,0,$m,$d,$y);
+            
+            $t1 = strtotime(date('Y')."-{$m}-{$d}");
+            $t2 = time();
+            $hadBD = ($t1 <= $t2);
            
             $age = date_diff(date_create(date('Y-m-d', $dob)), date_create('today'))->y;
             switch ($validator['0']['validator']) {
               case 'greater':
-                if ($age <= $validator['0']['value']) $visible = false;
+                if ($hadBD) {
+                  if ($age <= $validator['0']['value']) $visible = false;
+                }
+                else {
+                  // persona hasnt had bd yet, to lower the age for this check
+                  $age--;
+                  if ($age <= $validator['0']['value']) $visible = false;
+                }
                 break;
               case 'smaller':
-                if ($age > $validator['0']['value']) $visible = false;
+                if ($hadBD) {
+                  if ($age > $validator['0']['value']) $visible = false;
+                }
+                else {
+                  $age++;
+                  // persona hasnt had bd yet, to add the age for this check
+                  if ($age > $validator['0']['value']) $visible = false;
+                }
                 break;
               case 'equal':
-                if ($age != $validator['0']['value']) $visible = false;
+                if ($hadBD) {
+                  if ($age != $validator['0']['value']) $visible = false;
+                }
+                else {
+                  // persona hasnt had bd yet, so check for age and the age he/she will be this year
+                  if ($age != $validator['0']['value']) {
+                    $age++;
+                    if ($age != $validator['0']['value']) $visible = false;
+                  }
+                }
                 break;
                 
             }
