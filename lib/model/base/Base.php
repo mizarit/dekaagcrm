@@ -219,7 +219,7 @@ class DeKaagBase
       $this->id = $wpdb->insert_id;
       
       if ($send) {
-        mail('ricardo.matters@mizar-it.nl', 'SQL', $sql."\n\nInsert ID ".$this->id);
+        //mail('ricardo.matters@mizar-it.nl', 'SQL', $sql."\n\nInsert ID ".$this->id);
       }
     }
    // var_dump($this->values);
