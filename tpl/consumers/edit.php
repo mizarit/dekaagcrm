@@ -43,7 +43,7 @@
           		<th scope="row"><label for="address"><?php echo __('Address', 'dekaagcrm'); ?></label></th>
           		<td><input type="text" value="<?php echo $object->address; ?>" id="address" name="address"></td>
           	</tr>
-          	<tr class="form-field">
+          	<tr class="form-field <?php if(isset($errors['zipcode'])) echo 'form-invalid'; ?>">
           		<th scope="row"><label for="zipcode"><?php echo __('Zipcode', 'dekaagcrm'); ?></label></th>
           		<td><input type="text" value="<?php echo $object->zipcode; ?>" id="zipcode" name="zipcode" style="width:80px;"><span class="description">1234AA</span></td>
           	</tr> 
